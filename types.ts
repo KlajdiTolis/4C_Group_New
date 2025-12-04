@@ -1,6 +1,8 @@
+
 export interface Room {
   name: string;
   image: string;
+  gallery?: string[];
   size: string;
   capacity: string;
   price: number;

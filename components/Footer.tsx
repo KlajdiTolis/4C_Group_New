@@ -1,7 +1,10 @@
 import React from 'react';
 import { Facebook, Instagram, Twitter, Mail, MapPin, Phone } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Footer: React.FC = () => {
+  const { data } = useLanguage();
+
   return (
     <footer className="bg-brand-dark text-white pt-20 pb-10">
       <div className="container mx-auto px-6">
@@ -12,7 +15,7 @@ const Footer: React.FC = () => {
                4C <span className="text-brand-gold">GROUP</span>
             </a>
             <p className="text-gray-400 text-sm leading-relaxed">
-              Experience the finest hospitality in Albania. From the coast to the capital, we are your home away from home.
+              {data.labels.footerText}
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-400 hover:text-brand-gold transition-colors"><Instagram size={20} /></a>
@@ -23,18 +26,17 @@ const Footer: React.FC = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-serif text-lg mb-6 text-brand-gold">Explore</h4>
+            <h4 className="font-serif text-lg mb-6 text-brand-gold">{data.labels.exploreTitle}</h4>
             <ul className="space-y-4 text-sm text-gray-300">
-              <li><a href="#" className="hover:text-white transition-colors">Our Hotels</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Special Offers</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Dining & Bars</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Events & Weddings</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">{data.labels.ourHotels}</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">{data.labels.viewDetails}</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">{data.labels.sanctuarySubtitle}</a></li>
             </ul>
           </div>
 
           {/* Contact */}
           <div>
-            <h4 className="font-serif text-lg mb-6 text-brand-gold">Contact Us</h4>
+            <h4 className="font-serif text-lg mb-6 text-brand-gold">{data.labels.contactUs}</h4>
             <ul className="space-y-4 text-sm text-gray-300">
               <li className="flex items-center gap-3"><MapPin size={16} className="text-brand-gold" /> Tirana, Albania</li>
               <li className="flex items-center gap-3"><Phone size={16} className="text-brand-gold" /> +355 4 222 3333</li>
@@ -44,22 +46,22 @@ const Footer: React.FC = () => {
 
           {/* Newsletter */}
           <div>
-            <h4 className="font-serif text-lg mb-6 text-brand-gold">Newsletter</h4>
-            <p className="text-gray-400 text-sm mb-4">Subscribe to receive exclusive offers and news.</p>
+            <h4 className="font-serif text-lg mb-6 text-brand-gold">{data.labels.newsletter}</h4>
+            <p className="text-gray-400 text-sm mb-4">{data.labels.newsletterText}</p>
             <div className="flex">
-              <input type="email" placeholder="Your email" className="bg-white/10 border border-white/20 px-4 py-2 text-sm text-white w-full focus:outline-none focus:border-brand-gold" />
+              <input type="email" placeholder="Email" className="bg-white/10 border border-white/20 px-4 py-2 text-sm text-white w-full focus:outline-none focus:border-brand-gold" />
               <button className="bg-brand-gold text-brand-dark px-4 py-2 font-bold uppercase text-xs tracking-wider hover:bg-white transition-colors">
-                Join
+                {data.labels.subscribe}
               </button>
             </div>
           </div>
         </div>
 
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
-          <p>&copy; 2024 4C Group Albania. All rights reserved.</p>
+          <p>&copy; 2024 {data.labels.rightsReserved}</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="#" className="hover:text-white">Privacy Policy</a>
-            <a href="#" className="hover:text-white">Terms of Service</a>
+            <a href="#" className="hover:text-white">{data.labels.privacyPolicy}</a>
+            <a href="#" className="hover:text-white">{data.labels.termsOfService}</a>
           </div>
         </div>
       </div>

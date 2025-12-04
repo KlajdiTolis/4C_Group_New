@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import HotelGrid from './components/HotelGrid';
@@ -10,17 +10,18 @@ import Reviews from './components/Reviews';
 import Footer from './components/Footer';
 import ConciergeModal from './components/ConciergeModal';
 import HotelDetailPage from './components/HotelDetailPage';
-import { HOTELS } from './constants';
+import { LanguageProvider, useLanguage } from './contexts/LanguageContext';
 
-function App() {
+const AppContent: React.FC = () => {
   const [currentView, setCurrentView] = useState<'home' | string>('home');
+  const { data } = useLanguage();
 
   const handleNavigate = (view: string) => {
     setCurrentView(view);
     window.scrollTo(0, 0);
   };
 
-  const selectedHotel = HOTELS.find(h => h.id === currentView);
+  const selectedHotel = data.hotels.find(h => h.id === currentView);
 
   return (
     <div className="min-h-screen flex flex-col font-sans">
@@ -51,6 +52,14 @@ function App() {
       <ConciergeModal />
     </div>
   );
+};
+
+function App() {
+    return (
+        <LanguageProvider>
+            <AppContent />
+        </LanguageProvider>
+    );
 }
 
 export default App;

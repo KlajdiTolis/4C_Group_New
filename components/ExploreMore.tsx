@@ -1,14 +1,16 @@
 import React from 'react';
-import { EXPLORE_ITEMS } from '../constants';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const ExploreMore: React.FC = () => {
+  const { data } = useLanguage();
+
   return (
     <section id="experiences" className="py-24 bg-brand-cream">
       <div className="container mx-auto px-6">
-        <h2 className="text-4xl md:text-5xl font-serif text-brand-dark mb-16">Explore More</h2>
+        <h2 className="text-4xl md:text-5xl font-serif text-brand-dark mb-16">{data.labels.exploreTitle}</h2>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {EXPLORE_ITEMS.map((item, idx) => (
+          {data.exploreItems.map((item, idx) => (
             <div key={idx} className="group cursor-pointer">
               <div className="relative h-[400px] overflow-hidden mb-6">
                 <img 

@@ -1,8 +1,10 @@
 import React from 'react';
-import { REVIEWS } from '../constants';
+import { useLanguage } from '../contexts/LanguageContext';
 import { Quote, Star } from 'lucide-react';
 
 const Reviews: React.FC = () => {
+  const { data } = useLanguage();
+
   return (
     <section id="reviews" className="py-24 bg-brand-dark text-white relative overflow-hidden">
       {/* Background decoration */}
@@ -10,12 +12,12 @@ const Reviews: React.FC = () => {
       
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
-          <span className="text-brand-gold uppercase tracking-widest text-sm font-bold block mb-4">Testimonials</span>
-          <h2 className="text-4xl md:text-5xl font-serif">Guest Experiences</h2>
+          <span className="text-brand-gold uppercase tracking-widest text-sm font-bold block mb-4">{data.labels.testimonials}</span>
+          <h2 className="text-4xl md:text-5xl font-serif">{data.labels.guestExperiences}</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {REVIEWS.map((review) => (
+          {data.reviews.map((review) => (
             <div key={review.id} className="bg-white/5 p-8 border border-white/10 hover:border-brand-gold/50 transition-colors duration-300 rounded-lg backdrop-blur-sm">
               <Quote className="text-brand-gold mb-6 opacity-50" size={32} />
               <p className="text-gray-300 leading-relaxed mb-6 italic">

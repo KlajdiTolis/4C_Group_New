@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Globe } from 'lucide-react';
-import { NAV_LINKS } from '../constants';
+import { useLanguage } from '../contexts/LanguageContext';
+import { Logo4C } from './Logos';
 
 interface NavbarProps {
   onNavigate: (page: string) => void;
@@ -9,6 +10,7 @@ interface NavbarProps {
 const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { language, setLanguage, data } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,7 +21,7 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
   }, []);
 
   const navClass = `fixed w-full z-50 transition-all duration-500 ease-in-out ${
-    isScrolled ? 'bg-brand-dark/95 backdrop-blur-sm py-4 shadow-lg' : 'bg-gradient-to-b from-black/50 to-transparent py-6'
+    isScrolled ? 'bg-brand-dark/95 backdrop-blur-sm py-2 shadow-lg' : 'bg-gradient-to-b from-black/60 to-transparent py-6'
   }`;
 
   const textClass = 'text-white';
@@ -27,7 +29,6 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
   const handleLinkClick = (e: React.MouseEvent, href: string) => {
     e.preventDefault();
     onNavigate('home');
-    // Simple smooth scroll if on home, or wait for nav to home then scroll
     setTimeout(() => {
         const element = document.querySelector(href);
         element?.scrollIntoView({ behavior: 'smooth' });
@@ -35,19 +36,26 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
     setMobileMenuOpen(false);
   };
 
+  const toggleLanguage = () => {
+      setLanguage(language === 'en' ? 'al' : 'en');
+  };
+
   return (
     <nav className={navClass}>
       <div className="container mx-auto px-6 flex justify-between items-center">
         {/* Logo */}
-        <div className="flex items-center space-x-2 z-50 cursor-pointer" onClick={() => onNavigate('home')}>
-          <span className={`font-serif text-3xl font-bold tracking-widest ${textClass}`}>
+        <div className="flex items-center space-x-2 z-50 cursor-pointer group" onClick={() => onNavigate('home')}>
+          <div className="bg-white/10 p-2 rounded-full backdrop-blur-sm group-hover:bg-white/20 transition-colors">
+            <Logo4C className="w-10 h-10 md:w-12 md:h-12 text-white" />
+          </div>
+          <span className={`font-serif text-xl md:text-2xl font-bold tracking-widest ${textClass} ml-2`}>
             4C <span className="text-brand-gold">GROUP</span>
           </span>
         </div>
 
         {/* Desktop Links */}
         <div className="hidden md:flex items-center space-x-8">
-          {NAV_LINKS.map((link) => (
+          {data.navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
@@ -58,10 +66,15 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
             </a>
           ))}
           <button className={`border border-white/30 px-6 py-2 text-sm uppercase tracking-widest hover:bg-white hover:text-brand-dark transition-all duration-300 ${textClass}`}>
-            Book Now
+            {data.labels.bookNow}
           </button>
-          <button className={`${textClass} hover:text-brand-gold transition-colors`}>
-            <Globe size={20} />
+          
+          <button 
+            onClick={toggleLanguage}
+            className={`${textClass} hover:text-brand-gold transition-colors flex items-center gap-1 font-bold text-sm`}
+          >
+            <Globe size={18} />
+            {language.toUpperCase()}
           </button>
         </div>
 
@@ -75,7 +88,8 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
 
         {/* Mobile Menu Overlay */}
         <div className={`fixed inset-0 bg-brand-dark z-40 flex flex-col items-center justify-center space-y-8 transition-transform duration-500 ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
-            {NAV_LINKS.map((link) => (
+            <Logo4C className="w-24 h-24 text-white mb-4" />
+            {data.navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
@@ -86,7 +100,13 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
             </a>
           ))}
            <button className="bg-brand-gold text-brand-dark px-8 py-3 text-lg uppercase font-bold tracking-widest">
-            Book Your Stay
+            {data.labels.bookStay}
+          </button>
+          <button 
+            onClick={toggleLanguage}
+            className="text-white flex items-center gap-2 text-xl"
+          >
+            <Globe size={24} /> {language === 'en' ? 'English' : 'Shqip'}
           </button>
         </div>
       </div>

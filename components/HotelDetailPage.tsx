@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { Hotel } from '../types';
-import { Wifi, Car, Utensils, Waves, Sparkles, Bell, MapPin, Star, User, Maximize, ArrowLeft, Building, Dumbbell, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Hotel, Room } from '../types';
+import { Wifi, Car, Utensils, Waves, Sparkles, Bell, MapPin, Star, User, Maximize, ArrowLeft, Building, Dumbbell, Quote, ChevronLeft, ChevronRight, X, Check } from 'lucide-react';
+import { LogoMuseum, LogoValamar, Logo4C } from './Logos';
+import { useLanguage } from '../contexts/LanguageContext';
 
 interface HotelDetailPageProps {
   hotel: Hotel;
@@ -18,14 +20,49 @@ const iconMap: Record<string, React.ReactNode> = {
   Dumbbell: <Dumbbell size={32} strokeWidth={1} />,
 };
 
+const getHotelLogo = (id: string) => {
+    switch (id) {
+        case 'museum':
+            return <LogoMuseum className="w-48 h-48 md:w-64 md:h-64 text-white drop-shadow-2xl" />;
+        case 'valamar':
+            return <LogoValamar className="w-48 h-48 md:w-64 md:h-64 text-white drop-shadow-2xl" />;
+        default:
+            return null;
+    }
+};
+
 const HotelDetailPage: React.FC<HotelDetailPageProps> = ({ hotel, onBack }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [selectedRoom, setSelectedRoom] = useState<Room | null>(null);
+  const [roomImageIndex, setRoomImageIndex] = useState(0);
+  const { data, language } = useLanguage();
 
   const nextSlide = () => setCurrentSlide(prev => (prev + 1) % hotel.gallery.length);
   const prevSlide = () => setCurrentSlide(prev => (prev === 0 ? hotel.gallery.length - 1 : prev - 1));
 
+  const handleRoomClick = (room: Room) => {
+    setSelectedRoom(room);
+    setRoomImageIndex(0);
+  };
+
+  const nextRoomSlide = () => {
+    if (selectedRoom) {
+      const images = selectedRoom.gallery || [selectedRoom.image];
+      setRoomImageIndex(prev => (prev + 1) % images.length);
+    }
+  };
+
+  const prevRoomSlide = () => {
+    if (selectedRoom) {
+      const images = selectedRoom.gallery || [selectedRoom.image];
+      setRoomImageIndex(prev => (prev === 0 ? images.length - 1 : prev - 1));
+    }
+  };
+
+  const HotelLogo = getHotelLogo(hotel.id);
+
   return (
-    <div className="animate-fade-in">
+    <div className="animate-fade-in relative">
       {/* 1. Hero Section */}
       <div className="relative h-[80vh] w-full overflow-hidden">
         <div className="absolute inset-0">
@@ -41,16 +78,24 @@ const HotelDetailPage: React.FC<HotelDetailPageProps> = ({ hotel, onBack }) => {
           onClick={onBack}
           className="absolute top-24 left-6 md:left-12 z-20 flex items-center gap-2 text-white/80 hover:text-white transition-colors bg-black/20 px-4 py-2 rounded-full backdrop-blur-sm"
         >
-          <ArrowLeft size={18} /> <span className="text-sm uppercase tracking-widest">Back to Collection</span>
+          <ArrowLeft size={18} /> <span className="text-sm uppercase tracking-widest">{data.labels.backToCollection}</span>
         </button>
 
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 z-10">
-          <span className="text-brand-gold uppercase tracking-[0.3em] mb-4 font-bold text-sm md:text-base animate-fade-in-up">
+          <span className="text-brand-gold uppercase tracking-[0.3em] mb-8 font-bold text-sm md:text-base animate-fade-in-up">
             {hotel.location}
           </span>
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif text-white mb-6 drop-shadow-2xl animate-fade-in-up delay-100">
-            {hotel.name}
-          </h1>
+          
+          <div className="animate-fade-in-up delay-100 mb-8">
+            {HotelLogo ? (
+                HotelLogo
+            ) : (
+                <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif text-white drop-shadow-2xl">
+                    {hotel.name}
+                </h1>
+            )}
+          </div>
+
           <p className="text-white/90 max-w-lg text-lg font-light leading-relaxed animate-fade-in-up delay-200">
              {hotel.shortDesc}
           </p>
@@ -61,13 +106,17 @@ const HotelDetailPage: React.FC<HotelDetailPageProps> = ({ hotel, onBack }) => {
       <section className="py-24 bg-brand-cream">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-serif text-brand-dark mb-4">Accommodations</h2>
-            <p className="text-gray-500 uppercase tracking-widest text-xs">Choose Your Comfort</p>
+            <h2 className="text-4xl font-serif text-brand-dark mb-4">{data.labels.accommodations}</h2>
+            <p className="text-gray-500 uppercase tracking-widest text-xs">{data.labels.chooseComfort}</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {hotel.rooms.map((room, idx) => (
-              <div key={idx} className="group relative overflow-hidden rounded-sm shadow-xl aspect-[4/3] cursor-pointer">
+              <div 
+                key={idx} 
+                onClick={() => handleRoomClick(room)}
+                className="group relative overflow-hidden rounded-sm shadow-xl aspect-[4/3] cursor-pointer"
+              >
                 {/* Image */}
                 <img 
                   src={room.image} 
@@ -82,6 +131,7 @@ const HotelDetailPage: React.FC<HotelDetailPageProps> = ({ hotel, onBack }) => {
                 <div className="absolute bottom-0 left-0 w-full p-8 md:p-10 flex flex-col items-center text-center">
                    <h3 className="text-3xl md:text-4xl font-serif text-white tracking-wide mb-2 drop-shadow-lg">{room.name}</h3>
                    <div className="h-0.5 w-12 bg-brand-gold scale-0 group-hover:scale-100 transition-transform duration-300 origin-center"></div>
+                   <p className="text-white/80 text-sm mt-2 uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-4 group-hover:translate-y-0">{data.labels.viewDetails}</p>
                 </div>
               </div>
             ))}
@@ -97,19 +147,19 @@ const HotelDetailPage: React.FC<HotelDetailPageProps> = ({ hotel, onBack }) => {
               "{hotel.description}"
             </h2>
             <p className="text-gray-500 text-lg font-light italic">
-              — The 4C Group Promise
+              — {data.labels.promise}
             </p>
         </div>
       </section>
 
       {/* 4. What awaits you (Amenities) - Masonry Style */}
-      <section className="py-24 bg-brand-cream/50">
+      <section className="py-24 bg-brand-cream/50 overflow-hidden">
          <div className="container mx-auto px-6">
             <div className="flex flex-col md:flex-row gap-12 items-start">
                <div className="md:w-1/3 sticky top-32">
-                  <h2 className="text-5xl font-serif text-brand-dark mb-6">What awaits<br/>you</h2>
+                  <h2 className="text-5xl font-serif text-brand-dark mb-6">{data.labels.whatAwaits}<br/>you</h2>
                   <p className="text-gray-600 font-light leading-relaxed mb-8 text-lg">
-                     Experience the exceptional amenities and services curated specifically for your stay at {hotel.name}.
+                     {data.labels.whatAwaitsText} {hotel.name}.
                   </p>
                   <div className="w-24 h-1 bg-brand-gold"></div>
                </div>
@@ -135,8 +185,8 @@ const HotelDetailPage: React.FC<HotelDetailPageProps> = ({ hotel, onBack }) => {
       {/* 5. Visit us & Location */}
       <section className="py-0 flex flex-col md:flex-row h-[500px]">
           <div className="w-full md:w-1/2 bg-brand-dark text-white p-16 flex flex-col justify-center">
-             <span className="text-brand-gold uppercase tracking-widest text-sm mb-4">Visit Us</span>
-             <h2 className="text-4xl font-serif mb-8">Location & Contact</h2>
+             <span className="text-brand-gold uppercase tracking-widest text-sm mb-4">{data.labels.visitUs}</span>
+             <h2 className="text-4xl font-serif mb-8">{data.labels.locationContact}</h2>
              <div className="space-y-6 text-gray-300 font-light">
                 <div className="flex items-center gap-4">
                    <MapPin className="text-brand-gold" size={24} />
@@ -144,11 +194,11 @@ const HotelDetailPage: React.FC<HotelDetailPageProps> = ({ hotel, onBack }) => {
                 </div>
                 <div className="flex items-center gap-4">
                    <Car className="text-brand-gold" size={24} />
-                   <span>Valet parking available</span>
+                   <span>{data.labels.valetParking}</span>
                 </div>
              </div>
              <button className="mt-12 self-start border-b border-brand-gold text-brand-gold pb-1 hover:text-white hover:border-white transition-colors uppercase tracking-widest text-sm">
-                Get Directions
+                {data.labels.getDirections}
              </button>
           </div>
           <div className="w-full md:w-1/2 bg-gray-200 relative">
@@ -180,22 +230,23 @@ const HotelDetailPage: React.FC<HotelDetailPageProps> = ({ hotel, onBack }) => {
       </section>
 
       {/* 7. Reviews */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-brand-cream">
          <div className="container mx-auto px-6">
-            <h2 className="text-center text-4xl font-serif text-brand-dark mb-16">This is what our guests say</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
-               {hotel.reviews.map((review) => (
-                   <div key={review.id} className="bg-brand-cream/30 p-10 rounded-2xl relative">
-                       <Quote className="absolute top-6 left-6 text-brand-gold/20" size={48} />
-                       <p className="relative z-10 text-gray-600 italic leading-relaxed mb-6 font-serif text-lg">"{review.text}"</p>
-                       <div className="flex items-center gap-4">
-                          <div className="w-12 h-12 bg-brand-dark rounded-full flex items-center justify-center text-brand-gold font-bold">
+            <h2 className="text-center text-4xl font-serif text-brand-dark mb-16">{data.labels.guestsSay}</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+               {hotel.reviews.slice(0, 3).map((review) => (
+                   <div key={review.id} className="bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 relative border border-gray-100 flex flex-col h-full">
+                       <Quote className="text-brand-gold opacity-30 mb-6" size={40} />
+                       <p className="text-gray-600 italic leading-relaxed mb-8 flex-grow font-serif text-lg">"{review.text}"</p>
+                       <div className="flex items-center gap-4 mt-auto border-t border-gray-100 pt-6">
+                          <div className="w-12 h-12 bg-brand-dark rounded-full flex items-center justify-center text-white font-serif font-bold text-xl shrink-0">
                              {review.name.charAt(0)}
                           </div>
                           <div>
-                             <h4 className="font-bold text-brand-dark">{review.name}</h4>
-                             <div className="flex text-brand-gold text-xs">
-                                {[...Array(review.rating)].map((_,i) => <Star key={i} size={12} fill="currentColor" />)}
+                             <h4 className="font-bold text-brand-dark text-sm">{review.name}</h4>
+                             <p className="text-xs text-gray-400 uppercase tracking-wide mb-1">{review.location}</p>
+                             <div className="flex text-brand-gold gap-0.5">
+                                {[...Array(review.rating)].map((_,i) => <Star key={i} size={14} fill="currentColor" />)}
                              </div>
                           </div>
                        </div>
@@ -204,6 +255,102 @@ const HotelDetailPage: React.FC<HotelDetailPageProps> = ({ hotel, onBack }) => {
             </div>
          </div>
       </section>
+
+      {/* Room Detail Modal */}
+      {selectedRoom && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+            <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setSelectedRoom(null)}></div>
+            <div className="relative bg-white w-full max-w-5xl rounded-xl overflow-hidden shadow-2xl flex flex-col md:flex-row animate-fade-in-up max-h-[90vh]">
+                <button 
+                    onClick={() => setSelectedRoom(null)}
+                    className="absolute top-4 right-4 z-20 bg-white text-brand-dark p-2 rounded-full shadow-lg hover:scale-110 transition-transform"
+                >
+                    <X size={20} />
+                </button>
+                
+                {/* Image Side with Carousel */}
+                <div className="w-full md:w-1/2 relative h-64 md:h-auto group">
+                     {/* Images */}
+                     {(selectedRoom.gallery || [selectedRoom.image]).map((img, idx) => (
+                        <div key={idx} className={`absolute inset-0 transition-opacity duration-500 ${idx === roomImageIndex ? 'opacity-100' : 'opacity-0'}`}>
+                           <img src={img} alt={`${selectedRoom.name} - View ${idx + 1}`} className="w-full h-full object-cover" />
+                        </div>
+                     ))}
+                     
+                     {/* Controls */}
+                     {(selectedRoom.gallery && selectedRoom.gallery.length > 1) && (
+                       <>
+                         <button 
+                            onClick={prevRoomSlide} 
+                            className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/20 backdrop-blur-md hover:bg-white text-white hover:text-brand-dark transition-all flex items-center justify-center opacity-0 group-hover:opacity-100"
+                         >
+                            <ChevronLeft size={20} />
+                         </button>
+                         <button 
+                            onClick={nextRoomSlide} 
+                            className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/20 backdrop-blur-md hover:bg-white text-white hover:text-brand-dark transition-all flex items-center justify-center opacity-0 group-hover:opacity-100"
+                         >
+                            <ChevronRight size={20} />
+                         </button>
+                         
+                         {/* Dots */}
+                         <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5">
+                            {selectedRoom.gallery.map((_, idx) => (
+                               <div 
+                                  key={idx} 
+                                  className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${idx === roomImageIndex ? 'bg-white w-4' : 'bg-white/50'}`}
+                               ></div>
+                            ))}
+                         </div>
+                       </>
+                     )}
+                </div>
+
+                {/* Content Side */}
+                <div className="w-full md:w-1/2 p-8 md:p-12 overflow-y-auto">
+                     <div className="mb-2 text-brand-gold uppercase tracking-widest text-xs font-bold">{data.labels.roomDetail}</div>
+                     <h3 className="text-3xl md:text-4xl font-serif text-brand-dark mb-4">{selectedRoom.name}</h3>
+                     <p className="text-gray-500 mb-8 font-light leading-relaxed">
+                        {language === 'en' ? `Experience the epitome of comfort in our ${selectedRoom.name}. Designed with modern elegance and traditional touches to ensure a restful stay.` : `Përjetoni kulmin e rehatisë në ${selectedRoom.name} tonë. Projektuar me elegancë moderne dhe prekje tradicionale për të siguruar një qëndrim të qetë.`}
+                     </p>
+                     
+                     <div className="flex items-end gap-2 mb-8 border-b border-gray-100 pb-8">
+                        <span className="text-4xl font-serif text-brand-dark">€{selectedRoom.price}</span>
+                        <span className="text-gray-400 mb-1">/ {data.labels.night}</span>
+                     </div>
+
+                     <div className="grid grid-cols-2 gap-6 mb-8">
+                        <div className="flex items-center gap-3 text-gray-700">
+                            <Maximize size={20} className="text-brand-gold" />
+                            <span className="text-sm font-medium">{selectedRoom.size}</span>
+                        </div>
+                         <div className="flex items-center gap-3 text-gray-700">
+                            <User size={20} className="text-brand-gold" />
+                            <span className="text-sm font-medium">{selectedRoom.capacity}</span>
+                        </div>
+                     </div>
+
+                     <div className="mb-8">
+                        <h4 className="font-serif text-lg mb-4">{data.labels.roomFeatures}</h4>
+                        <div className="space-y-3">
+                            {selectedRoom.features.map((feature, i) => (
+                                <div key={i} className="flex items-center gap-3 text-gray-600">
+                                    <div className="w-5 h-5 rounded-full bg-brand-cream flex items-center justify-center text-brand-gold">
+                                        <Check size={12} strokeWidth={3} />
+                                    </div>
+                                    <span className="text-sm">{feature}</span>
+                                </div>
+                            ))}
+                        </div>
+                     </div>
+
+                     <button className="w-full bg-brand-dark text-white py-4 uppercase tracking-widest font-bold hover:bg-brand-gold transition-colors text-sm rounded-sm">
+                        {data.labels.bookRoom}
+                     </button>
+                </div>
+            </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -2,15 +2,22 @@ import React, { useState, useRef, useEffect } from 'react';
 import { MessageSquare, X, Send, Sparkles } from 'lucide-react';
 import { ChatMessage } from '../types';
 import { sendMessageToConcierge } from '../services/geminiService';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const ConciergeModal: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState<ChatMessage[]>([
-    { role: 'model', text: 'Mirëdita! I am Auron, your 4C Group Concierge. How may I assist you in planning your stay in Albania?', timestamp: new Date() }
-  ]);
+  const { data } = useLanguage();
+  const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [inputValue, setInputValue] = useState('');
   const [loading, setLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  // Initialize greeting only once or when language changes if open
+  useEffect(() => {
+    if (messages.length === 0) {
+        setMessages([{ role: 'model', text: data.labels.conciergeGreeting, timestamp: new Date() }]);
+    }
+  }, [data.labels.conciergeGreeting]);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -58,8 +65,8 @@ const ConciergeModal: React.FC = () => {
                 <Sparkles size={18} className="text-brand-gold" />
               </div>
               <div>
-                <h3 className="font-serif font-bold tracking-wide">Auron Concierge</h3>
-                <p className="text-xs text-gray-400">Powered by Gemini AI</p>
+                <h3 className="font-serif font-bold tracking-wide">{data.labels.conciergeTitle}</h3>
+                <p className="text-xs text-gray-400">{data.labels.conciergeSubtitle}</p>
               </div>
             </div>
             <button onClick={() => setIsOpen(false)} className="hover:text-brand-gold transition-colors">
@@ -99,7 +106,7 @@ const ConciergeModal: React.FC = () => {
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
               onKeyDown={handleKeyPress}
-              placeholder="Ask about our hotels..."
+              placeholder={data.labels.conciergeInput}
               className="flex-1 bg-gray-50 border border-gray-200 rounded-full px-4 py-2 text-sm focus:outline-none focus:border-brand-gold transition-colors"
             />
             <button 

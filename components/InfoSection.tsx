@@ -1,6 +1,9 @@
 import React from 'react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const InfoSection: React.FC = () => {
+  const { data } = useLanguage();
+
   return (
     <section className="bg-white overflow-hidden">
       <div className="flex flex-col md:flex-row h-auto md:min-h-[600px]">
@@ -8,17 +11,17 @@ const InfoSection: React.FC = () => {
         <div className="w-full md:w-1/2 p-12 md:p-24 flex flex-col justify-center bg-brand-cream/30">
           <div className="max-w-xl mx-auto md:mx-0">
              <h2 className="text-3xl md:text-5xl font-serif text-brand-dark mb-8 leading-tight">
-              A Sanctuary of <br/>
-              <span className="italic text-brand-gold">Mediterranean Luxury</span>
+              {data.labels.sanctuaryTitle} <br/>
+              <span className="italic text-brand-gold">{data.labels.sanctuarySubtitle}</span>
             </h2>
             <p className="text-gray-600 leading-relaxed mb-6 font-light text-lg">
-              The 4C Group collection is designed with first-class facilities and is subject to the highest standards of hospitality. Whether you seek the vibrant city life of Tirana or the serene waves of the Riviera, our properties offer a seamless blend of comfort and elegance.
+              {data.labels.sanctuaryText1}
             </p>
             <p className="text-gray-600 leading-relaxed mb-10 font-light text-lg">
-               With strategically located properties across Albania, we offer the perfect infrastructure for both leisure and business travelers. From the nearby Marina Village boutiques to the historic amphitheaters, every stay promises a new discovery.
+               {data.labels.sanctuaryText2}
             </p>
             <button className="text-brand-dark border-b border-brand-dark pb-1 uppercase tracking-widest text-xs font-bold hover:text-brand-gold hover:border-brand-gold transition-colors self-start">
-              Read Our Story
+              {data.labels.readStory}
             </button>
           </div>
         </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { HOTELS } from '../constants';
+import { useLanguage } from '../contexts/LanguageContext';
 import { Info, Building, BedDouble, MapPin } from 'lucide-react';
 
 interface HotelGridProps {
@@ -7,16 +7,18 @@ interface HotelGridProps {
 }
 
 const HotelGrid: React.FC<HotelGridProps> = ({ onNavigate }) => {
+  const { data } = useLanguage();
+
   return (
     <section id="hotels" className="py-24 bg-brand-cream">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-serif text-brand-dark mb-4">Our Hotels</h2>
-          <p className="text-gray-500 uppercase tracking-widest text-sm">Experience Excellence Across Albania</p>
+          <h2 className="text-4xl md:text-5xl font-serif text-brand-dark mb-4">{data.labels.ourHotels}</h2>
+          <p className="text-gray-500 uppercase tracking-widest text-sm">{data.labels.excellence}</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {HOTELS.map((hotel, index) => (
+          {data.hotels.map((hotel, index) => (
             <div 
                 key={hotel.id} 
                 onClick={() => onNavigate(hotel.id)}
@@ -36,13 +38,13 @@ const HotelGrid: React.FC<HotelGridProps> = ({ onNavigate }) => {
 
               {/* Top Right Pill Tag */}
               <div className="absolute top-6 right-6 bg-[#d1bfa1] text-brand-dark text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider shadow-lg transform transition-transform group-hover:scale-105">
-                Hospitality
+                {data.labels.hospitality}
               </div>
 
-              {/* Center Content (Hidden by default, shown on hover/always depending on design) */}
+              {/* Center Content */}
               <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                  <button className="bg-white/10 backdrop-blur-md border border-white/30 text-white px-6 py-2 rounded-full uppercase text-xs tracking-widest hover:bg-white hover:text-brand-dark transition-all">
-                    View Details
+                    {data.labels.viewDetails}
                  </button>
               </div>
 
