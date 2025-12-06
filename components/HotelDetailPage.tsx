@@ -107,12 +107,12 @@ const HotelDetailPage: React.FC = () => {
   return (
     <div className="animate-fade-in relative">
       {/* 1. Hero Section */}
-      <div className="relative h-[80vh] w-full overflow-hidden">
+      <div className="relative h-screen w-full overflow-hidden">
         <div className="absolute inset-0">
           <img 
             src={hotel.image} 
             alt={hotel.name}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-center"
           />
           <div className="absolute inset-0 bg-black/40"></div>
         </div>

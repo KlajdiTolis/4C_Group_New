@@ -11,136 +11,9 @@ export const SLIDER_IMAGES = [
     "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=2070&auto=format&fit=crop"  // Interior
 ];
 
-const R2_BASE = "https://pub-3bed4e1c62024c28800c300b9e2cbed1.r2.dev/4c-group";
+const R2_BASE = "https://pub-3bed4e1c62024c28800c300b9e2cbed1.r2.dev";
 
 const HOTELS_EN: Hotel[] = [
-  {
-    id: 'green-coast',
-    name: 'Green Coast Resort',
-    location: 'Palasa, Albania',
-    description: 'Nestled on the pristine shores of the Albanian Riviera, Green Coast offers an unparalleled blend of modern luxury and natural beauty. Experience private villas right next to the turquoise sea.',
-    shortDesc: 'Next to the Sea',
-    // Image 2: 4C Palase - Next to sea (Turquoise water, Riviera vibe)
-    image: 'https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?q=80&w=2070&auto=format&fit=crop',
-    features: ['Private Beach', 'Luxury Villas', 'Helipad'],
-    priceStart: 350,
-    mapLocation: { lat: 40.15, lng: 19.6, address: "Palasë, Vlorë County, Albania" },
-    specialOffer: {
-        title: "Early Summer Escape",
-        description: "Book your villa 60 days in advance and enjoy exclusive savings on your stay. Includes complimentary breakfast.",
-        value: "15% OFF",
-        code: "SUMMER24",
-        validUntil: "May 31, 2024"
-    },
-    rooms: [
-        {
-            name: "Sea View Villa",
-            image: "https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?q=80&w=2070&auto=format&fit=crop",
-            gallery: [
-                "https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?q=80&w=2070&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1512918760383-5658fa5124f3?q=80&w=2070&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1613553507747-5f8d62ad5904?q=80&w=2070&auto=format&fit=crop"
-            ],
-            size: "120 m²",
-            capacity: "4 Guests",
-            price: 450,
-            features: ["Private Pool", "Ocean View", "Kitchenette"]
-        },
-        {
-            name: "Promenade Suite",
-            image: "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?q=80&w=2070&auto=format&fit=crop",
-            gallery: [
-                "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?q=80&w=2070&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?q=80&w=2070&auto=format&fit=crop"
-            ],
-            size: "65 m²",
-            capacity: "2 Guests",
-            price: 350,
-            features: ["Balcony", "King Bed", "Rain Shower"]
-        }
-    ],
-    amenitiesList: [
-        { title: "Private Beach Access", description: "Direct access to the pristine white sands of Palasa.", icon: "Waves" },
-        { title: "Gourmet Dining", description: "3 exclusive restaurants serving Mediterranean cuisine.", icon: "Utensils" },
-        { title: "Wellness Center", description: "Full-service spa, sauna, and infinity pools.", icon: "Sparkles" },
-        { title: "Concierge Service", description: "24/7 personalized service for all your needs.", icon: "Bell" },
-        { title: "Valet Parking", description: "Secure underground parking with charging stations.", icon: "Car" },
-        { title: "Connectivity", description: "High-speed fiber optic Wi-Fi throughout the resort.", icon: "Wifi" }
-    ],
-    gallery: [
-        "https://images.unsplash.com/photo-1540541338287-41700207dee6?q=80&w=2070&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=2070&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1571896349842-6e53ce41e887?q=80&w=2070&auto=format&fit=crop"
-    ],
-    reviews: [
-        { id: 1, name: "Elena K.", text: "Absolutely stunning. The villa was perfect and the views were breathtaking.", rating: 5, location: "London, UK" },
-        { id: 2, name: "James B.", text: "Best beach in Europe. Service was top notch from arrival to departure.", rating: 5, location: "Berlin, DE" },
-        { id: 3, name: "Sophie M.", text: "A paradise on earth. The private pool was the highlight of our trip.", rating: 5, location: "Paris, FR" }
-    ]
-  },
-  {
-    id: 'valamar',
-    name: 'Valamar Durrës',
-    location: 'Durrës, Albania',
-    description: 'Located in the historic coastal city of Durrës, Valamar is a sanctuary of relaxation next to the sea. Perfect for families, offering golden sand beaches and easy access to the Adriatic.',
-    shortDesc: 'Next to the Sea',
-    // Image 3: Valamar Durrës - Next to sea (Sandy beach, family friendly)
-    image: 'https://images.unsplash.com/photo-1615880484746-a134be9a6ecf?q=80&w=2074&auto=format&fit=crop',
-    features: ['Family Suites', 'Infinity Pool', 'Conference Center'],
-    priceStart: 180,
-    mapLocation: { lat: 41.32, lng: 19.45, address: "Rruga Plazhit, Durrës, Albania" },
-    specialOffer: {
-        title: "Family Retreat",
-        description: "Kids stay and eat for free! Valid for families booking a Family Suite for minimum 3 nights.",
-        value: "KIDS EAT FREE",
-        code: "FAMILYFUN",
-        validUntil: "June 15, 2024"
-    },
-    rooms: [
-        {
-            name: "Family Suite",
-            image: "https://images.unsplash.com/photo-1590490360182-c33d57733427?q=80&w=2070&auto=format&fit=crop",
-            gallery: [
-                "https://images.unsplash.com/photo-1590490360182-c33d57733427?q=80&w=2070&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1616486029423-aaa478965c96?q=80&w=2070&auto=format&fit=crop"
-            ],
-            size: "80 m²",
-            capacity: "2 Adults, 2 Children",
-            price: 250,
-            features: ["Two Bedrooms", "Living Area", "Sea View"]
-        },
-        {
-            name: "Deluxe Room",
-            image: "https://images.unsplash.com/photo-1618773928121-c32242e63f39?q=80&w=2070&auto=format&fit=crop",
-            gallery: [
-                "https://images.unsplash.com/photo-1618773928121-c32242e63f39?q=80&w=2070&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1590073844006-33379778ae09?q=80&w=2074&auto=format&fit=crop"
-            ],
-            size: "40 m²",
-            capacity: "2 Guests",
-            price: 180,
-            features: ["Balcony", "Minibar", "Work Desk"]
-        }
-    ],
-    amenitiesList: [
-        { title: "Family Activities", description: "Kids club, shallow pools, and animation teams.", icon: "Sparkles" },
-        { title: "Conference Halls", description: "3 large halls for events up to 500 people.", icon: "Building" },
-        { title: "Seaside Bar", description: "Enjoy sunsets with our signature cocktails.", icon: "Utensils" },
-        { title: "Fitness Gym", description: "Modern equipment for your workout routine.", icon: "Dumbbell" },
-        { title: "Secure Parking", description: "Ample parking space for guests.", icon: "Car" },
-        { title: "Beach Service", description: "Dedicated umbrellas and loungers for every room.", icon: "Waves" }
-    ],
-    gallery: [
-        "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?q=80&w=2049&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1560662105-57f8ad6ae2d1?q=80&w=2070&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80&w=2070&auto=format&fit=crop"
-    ],
-    reviews: [
-        { id: 1, name: "Marco R.", text: "Great for the kids, very safe and clean.", rating: 5, location: "Rome, IT" },
-        { id: 2, name: "Ana S.", text: "Beautiful sunset views from the balcony. Staff was very helpful.", rating: 4, location: "Tirana, AL" },
-        { id: 3, name: "John D.", text: "The conference facilities were excellent for our annual meeting.", rating: 5, location: "London, UK" }
-    ]
-  },
   {
     id: 'museum',
     name: 'The Museum Hotel',
@@ -148,7 +21,7 @@ const HOTELS_EN: Hotel[] = [
     description: 'Immerse yourself in history and culture in the heart of the capital. The Museum Hotel combines architectural elegance with contemporary comfort, acting as a cultural hub.',
     shortDesc: 'Cultural Hotel',
     // Image 4: Museum - Cultural Hotel (Artistic, interior, city)
-    image: 'https://images.unsplash.com/photo-1560184897-ae75f418493e?q=80&w=2070&auto=format&fit=crop',
+    image: 'https://pub-3bed4e1c62024c28800c300b9e2cbed1.r2.dev/museum/muzeu.jpg',
     features: ['Rooftop Bar', 'City Views', 'Business Lounge'],
     priceStart: 220,
     mapLocation: { lat: 41.3275, lng: 19.818, address: "Sheshi Skënderbej, Tirana, Albania" },
@@ -286,6 +159,133 @@ const HOTELS_EN: Hotel[] = [
         { id: 1, name: "Sarah J.", text: "Perfect location for business trips. The wifi is incredibly fast.", rating: 5, location: "NY, USA" },
         { id: 2, name: "David L.", text: "The design details are incredible. A true museum experience.", rating: 5, location: "Paris, FR" },
         { id: 3, name: "Fatima K.", text: "The rooftop bar has the best view in Tirana.", rating: 5, location: "Dubai, UAE" }
+    ]
+  },
+  {
+    id: 'valamar',
+    name: 'Valamar Durrës',
+    location: 'Durrës, Albania',
+    description: 'Located in the historic coastal city of Durrës, Valamar is a sanctuary of relaxation next to the sea. Perfect for families, offering golden sand beaches and easy access to the Adriatic.',
+    shortDesc: 'Next to the Sea',
+    // Image 3: Valamar Durrës - Next to sea (Sandy beach, family friendly)
+    image: 'https://pub-3bed4e1c62024c28800c300b9e2cbed1.r2.dev/valamar/valamar.png',
+    features: ['Family Suites', 'Infinity Pool', 'Conference Center'],
+    priceStart: 180,
+    mapLocation: { lat: 41.32, lng: 19.45, address: "Rruga Plazhit, Durrës, Albania" },
+    specialOffer: {
+        title: "Family Retreat",
+        description: "Kids stay and eat for free! Valid for families booking a Family Suite for minimum 3 nights.",
+        value: "KIDS EAT FREE",
+        code: "FAMILYFUN",
+        validUntil: "June 15, 2024"
+    },
+    rooms: [
+        {
+            name: "Family Suite",
+            image: "https://images.unsplash.com/photo-1590490360182-c33d57733427?q=80&w=2070&auto=format&fit=crop",
+            gallery: [
+                "https://images.unsplash.com/photo-1590490360182-c33d57733427?q=80&w=2070&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1616486029423-aaa478965c96?q=80&w=2070&auto=format&fit=crop"
+            ],
+            size: "80 m²",
+            capacity: "2 Adults, 2 Children",
+            price: 250,
+            features: ["Two Bedrooms", "Living Area", "Sea View"]
+        },
+        {
+            name: "Deluxe Room",
+            image: "https://images.unsplash.com/photo-1618773928121-c32242e63f39?q=80&w=2070&auto=format&fit=crop",
+            gallery: [
+                "https://images.unsplash.com/photo-1618773928121-c32242e63f39?q=80&w=2070&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1590073844006-33379778ae09?q=80&w=2074&auto=format&fit=crop"
+            ],
+            size: "40 m²",
+            capacity: "2 Guests",
+            price: 180,
+            features: ["Balcony", "Minibar", "Work Desk"]
+        }
+    ],
+    amenitiesList: [
+        { title: "Family Activities", description: "Kids club, shallow pools, and animation teams.", icon: "Sparkles" },
+        { title: "Conference Halls", description: "3 large halls for events up to 500 people.", icon: "Building" },
+        { title: "Seaside Bar", description: "Enjoy sunsets with our signature cocktails.", icon: "Utensils" },
+        { title: "Fitness Gym", description: "Modern equipment for your workout routine.", icon: "Dumbbell" },
+        { title: "Secure Parking", description: "Ample parking space for guests.", icon: "Car" },
+        { title: "Beach Service", description: "Dedicated umbrellas and loungers for every room.", icon: "Waves" }
+    ],
+    gallery: [
+        "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?q=80&w=2049&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1560662105-57f8ad6ae2d1?q=80&w=2070&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80&w=2070&auto=format&fit=crop"
+    ],
+    reviews: [
+        { id: 1, name: "Marco R.", text: "Great for the kids, very safe and clean.", rating: 5, location: "Rome, IT" },
+        { id: 2, name: "Ana S.", text: "Beautiful sunset views from the balcony. Staff was very helpful.", rating: 4, location: "Tirana, AL" },
+        { id: 3, name: "John D.", text: "The conference facilities were excellent for our annual meeting.", rating: 5, location: "London, UK" }
+    ]
+  },
+  {
+    id: 'green-coast',
+    name: 'Green Coast Resort',
+    location: 'Palasa, Albania',
+    description: 'Nestled on the pristine shores of the Albanian Riviera, Green Coast offers an unparalleled blend of modern luxury and natural beauty. Experience private villas right next to the turquoise sea.',
+    shortDesc: 'Next to the Sea',
+    // Image 2: 4C Palase - Next to sea (Turquoise water, Riviera vibe)
+    image: 'https://pub-3bed4e1c62024c28800c300b9e2cbed1.r2.dev/4C-Palase/4cGroup.png',
+    features: ['Private Beach', 'Luxury Villas', 'Helipad'],
+    priceStart: 350,
+    mapLocation: { lat: 40.15, lng: 19.6, address: "Palasë, Vlorë County, Albania" },
+    specialOffer: {
+        title: "Early Summer Escape",
+        description: "Book your villa 60 days in advance and enjoy exclusive savings on your stay. Includes complimentary breakfast.",
+        value: "15% OFF",
+        code: "SUMMER24",
+        validUntil: "May 31, 2024"
+    },
+    rooms: [
+        {
+            name: "Sea View Villa",
+            image: "https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?q=80&w=2070&auto=format&fit=crop",
+            gallery: [
+                "https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?q=80&w=2070&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1512918760383-5658fa5124f3?q=80&w=2070&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1613553507747-5f8d62ad5904?q=80&w=2070&auto=format&fit=crop"
+            ],
+            size: "120 m²",
+            capacity: "4 Guests",
+            price: 450,
+            features: ["Private Pool", "Ocean View", "Kitchenette"]
+        },
+        {
+            name: "Promenade Suite",
+            image: "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?q=80&w=2070&auto=format&fit=crop",
+            gallery: [
+                "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?q=80&w=2070&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?q=80&w=2070&auto=format&fit=crop"
+            ],
+            size: "65 m²",
+            capacity: "2 Guests",
+            price: 350,
+            features: ["Balcony", "King Bed", "Rain Shower"]
+        }
+    ],
+    amenitiesList: [
+        { title: "Private Beach Access", description: "Direct access to the pristine white sands of Palasa.", icon: "Waves" },
+        { title: "Gourmet Dining", description: "3 exclusive restaurants serving Mediterranean cuisine.", icon: "Utensils" },
+        { title: "Wellness Center", description: "Full-service spa, sauna, and infinity pools.", icon: "Sparkles" },
+        { title: "Concierge Service", description: "24/7 personalized service for all your needs.", icon: "Bell" },
+        { title: "Valet Parking", description: "Secure underground parking with charging stations.", icon: "Car" },
+        { title: "Connectivity", description: "High-speed fiber optic Wi-Fi throughout the resort.", icon: "Wifi" }
+    ],
+    gallery: [
+        "https://images.unsplash.com/photo-1540541338287-41700207dee6?q=80&w=2070&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=2070&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1571896349842-6e53ce41e887?q=80&w=2070&auto=format&fit=crop"
+    ],
+    reviews: [
+        { id: 1, name: "Elena K.", text: "Absolutely stunning. The villa was perfect and the views were breathtaking.", rating: 5, location: "London, UK" },
+        { id: 2, name: "James B.", text: "Best beach in Europe. Service was top notch from arrival to departure.", rating: 5, location: "Berlin, DE" },
+        { id: 3, name: "Sophie M.", text: "A paradise on earth. The private pool was the highlight of our trip.", rating: 5, location: "Paris, FR" }
     ]
   }
 ];
