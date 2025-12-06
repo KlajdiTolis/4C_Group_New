@@ -34,6 +34,7 @@ export interface SpecialOffer {
 export interface Activity {
   title: string;
   image: string;
+  gallery?: string[]; // Photos for the activity
   shortDescription: string;
   fullDescription: string;
   duration: string;

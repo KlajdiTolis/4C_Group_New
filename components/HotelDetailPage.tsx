@@ -365,6 +365,12 @@ const HotelDetailPage: React.FC<HotelDetailPageProps> = ({ hotel, onBack }) => {
                                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                                 />
                                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors"></div>
+                                {/* Icon to show there's a gallery */}
+                                {activity.gallery && activity.gallery.length > 0 && (
+                                    <div className="absolute top-4 right-4 bg-black/40 text-white p-1.5 rounded-full backdrop-blur-sm">
+                                        <Sparkles size={14} />
+                                    </div>
+                                )}
                             </div>
                             <h4 className="text-xl font-serif text-brand-dark mb-2 group-hover:text-brand-gold transition-colors">{activity.title}</h4>
                             <p className="text-gray-500 text-sm font-light leading-relaxed mb-4 line-clamp-2">{activity.shortDescription}</p>
@@ -552,7 +558,7 @@ const HotelDetailPage: React.FC<HotelDetailPageProps> = ({ hotel, onBack }) => {
       {selectedActivity && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
             <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setSelectedActivity(null)}></div>
-            <div className="relative bg-white w-full max-w-4xl rounded-xl overflow-hidden shadow-2xl animate-fade-in-up">
+            <div className="relative bg-white w-full max-w-4xl rounded-xl overflow-hidden shadow-2xl animate-fade-in-up max-h-[90vh] overflow-y-auto">
                  <button 
                     onClick={() => setSelectedActivity(null)}
                     className="absolute top-4 right-4 z-20 bg-black/20 hover:bg-black/50 text-white p-2 rounded-full backdrop-blur transition-colors"
@@ -560,10 +566,28 @@ const HotelDetailPage: React.FC<HotelDetailPageProps> = ({ hotel, onBack }) => {
                     <X size={20} />
                 </button>
                 
-                <div className="h-64 md:h-80 relative">
-                     <img src={selectedActivity.image} alt={selectedActivity.title} className="w-full h-full object-cover" />
-                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-                     <div className="absolute bottom-6 left-6 md:bottom-10 md:left-10 text-white">
+                {/* Main Image or Gallery */}
+                <div className="h-64 md:h-80 relative overflow-x-auto flex snap-x snap-mandatory">
+                     {/* If gallery exists, show all, else just show main image */}
+                     {selectedActivity.gallery && selectedActivity.gallery.length > 0 ? (
+                         selectedActivity.gallery.map((img, idx) => (
+                             <div key={idx} className="flex-shrink-0 w-full h-full relative snap-center">
+                                 <img src={img} alt={`${selectedActivity.title} - ${idx}`} className="w-full h-full object-cover" />
+                                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
+                                 {/* Image Counter */}
+                                 <div className="absolute bottom-4 right-4 bg-black/40 text-white px-3 py-1 text-xs rounded-full backdrop-blur-md">
+                                     {idx + 1} / {selectedActivity.gallery.length}
+                                 </div>
+                             </div>
+                         ))
+                     ) : (
+                         <div className="w-full h-full relative">
+                            <img src={selectedActivity.image} alt={selectedActivity.title} className="w-full h-full object-cover" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                         </div>
+                     )}
+
+                     <div className="absolute bottom-6 left-6 md:bottom-10 md:left-10 text-white pointer-events-none">
                          <span className="bg-brand-gold px-3 py-1 text-xs font-bold uppercase tracking-widest rounded-sm mb-3 inline-block">
                              {data.labels.activityDetails}
                          </span>

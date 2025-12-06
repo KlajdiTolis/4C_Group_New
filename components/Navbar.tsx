@@ -20,6 +20,18 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [mobileMenuOpen]);
+
   const navClass = `fixed w-full z-50 transition-all duration-500 ease-in-out ${
     isScrolled ? 'bg-brand-dark/95 backdrop-blur-sm py-2 shadow-lg' : 'bg-gradient-to-b from-black/60 to-transparent py-6'
   }`;

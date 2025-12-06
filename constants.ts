@@ -1,11 +1,14 @@
 import { Hotel, Review } from './types';
 
 // Shared Data
+// Image 1: 4C Group Representative Image (Luxury, Diverse)
+export const HERO_IMAGE = "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?q=80&w=2070&auto=format&fit=crop";
+
 export const SLIDER_IMAGES = [
-    "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80&w=2070&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=2070&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=2070&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070&auto=format&fit=crop"
+    HERO_IMAGE,
+    "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80&w=2070&auto=format&fit=crop", // Beach
+    "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070&auto=format&fit=crop", // City
+    "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=2070&auto=format&fit=crop"  // Interior
 ];
 
 const HOTELS_EN: Hotel[] = [
@@ -13,9 +16,10 @@ const HOTELS_EN: Hotel[] = [
     id: 'green-coast',
     name: 'Green Coast Resort',
     location: 'Palasa, Albania',
-    description: 'Nestled on the pristine shores of the Albanian Riviera, Green Coast offers an unparalleled blend of modern luxury and natural beauty. Experience private villas, crystal clear waters, and world-class hospitality.',
-    shortDesc: 'The Jewel of the Riviera',
-    image: 'https://images.unsplash.com/photo-1540541338287-41700207dee6?q=80&w=2070&auto=format&fit=crop',
+    description: 'Nestled on the pristine shores of the Albanian Riviera, Green Coast offers an unparalleled blend of modern luxury and natural beauty. Experience private villas right next to the turquoise sea.',
+    shortDesc: 'Next to the Sea',
+    // Image 2: 4C Palase - Next to sea (Turquoise water, Riviera vibe)
+    image: 'https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?q=80&w=2070&auto=format&fit=crop',
     features: ['Private Beach', 'Luxury Villas', 'Helipad'],
     priceStart: 350,
     mapLocation: { lat: 40.15, lng: 19.6, address: "Palasë, Vlorë County, Albania" },
@@ -76,9 +80,10 @@ const HOTELS_EN: Hotel[] = [
     id: 'valamar',
     name: 'Valamar Durrës',
     location: 'Durrës, Albania',
-    description: 'Located in the historic coastal city of Durrës, Valamar is a sanctuary of relaxation. Perfect for families and couples alike, offering golden sand beaches and easy access to the ancient amphitheater.',
-    shortDesc: 'Coastal Serenity',
-    image: 'https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?q=80&w=2049&auto=format&fit=crop',
+    description: 'Located in the historic coastal city of Durrës, Valamar is a sanctuary of relaxation next to the sea. Perfect for families, offering golden sand beaches and easy access to the Adriatic.',
+    shortDesc: 'Next to the Sea',
+    // Image 3: Valamar Durrës - Next to sea (Sandy beach, family friendly)
+    image: 'https://images.unsplash.com/photo-1615880484746-a134be9a6ecf?q=80&w=2074&auto=format&fit=crop',
     features: ['Family Suites', 'Infinity Pool', 'Conference Center'],
     priceStart: 180,
     mapLocation: { lat: 41.32, lng: 19.45, address: "Rruga Plazhit, Durrës, Albania" },
@@ -138,9 +143,10 @@ const HOTELS_EN: Hotel[] = [
     id: 'museum',
     name: 'The Museum Hotel',
     location: 'Tirana City Center',
-    description: 'Immerse yourself in history and culture in the heart of the capital. The Museum Hotel combines architectural elegance with contemporary comfort, steps away from Skanderbeg Square.',
-    shortDesc: 'Urban Elegance',
-    image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070&auto=format&fit=crop',
+    description: 'Immerse yourself in history and culture in the heart of the capital. The Museum Hotel combines architectural elegance with contemporary comfort, acting as a cultural hub.',
+    shortDesc: 'Cultural Hotel',
+    // Image 4: Museum - Cultural Hotel (Artistic, interior, city)
+    image: 'https://images.unsplash.com/photo-1560184897-ae75f418493e?q=80&w=2070&auto=format&fit=crop',
     features: ['Rooftop Bar', 'City Views', 'Business Lounge'],
     priceStart: 220,
     mapLocation: { lat: 41.3275, lng: 19.818, address: "Sheshi Skënderbej, Tirana, Albania" },
@@ -205,29 +211,47 @@ const HOTELS_EN: Hotel[] = [
         {
             title: "Explore City Center",
             image: "https://images.unsplash.com/photo-1598322625292-66b962054fb0?q=80&w=2070&auto=format&fit=crop",
+            gallery: [
+                "https://images.unsplash.com/photo-1598322625292-66b962054fb0?q=80&w=2070&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1533513076899-28c0c4e72352?q=80&w=2070&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1627918342171-460d3d5f4900?q=80&w=2070&auto=format&fit=crop"
+            ],
             shortDescription: "The heart of Tirana, steps from your door.",
-            fullDescription: "Immerse yourself in the vibrant Skanderbeg Square, the epicenter of Tirana. Visit the iconic Et'hem Bey Mosque, climb the Clock Tower for a panoramic view, and stroll past the government buildings that showcase Italian architecture. This walking tour covers the essential landmarks that define the capital's history and modern transformation.",
+            fullDescription: "Immerse yourself in the vibrant Skanderbeg Square, the epicenter of Tirana. Visit the iconic Et'hem Bey Mosque, climb the Clock Tower for a panoramic view, and stroll past the government buildings that showcase Italian architecture.",
             duration: "2 - 3 Hours"
         },
         {
             title: "Mount Dajt Adventure",
             image: "https://images.unsplash.com/photo-1621689893888-038237d8a6db?q=80&w=2070&auto=format&fit=crop",
+            gallery: [
+                "https://images.unsplash.com/photo-1621689893888-038237d8a6db?q=80&w=2070&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1624890656096-7c1543666b6c?q=80&w=2070&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1587595431973-160d0d94add1?q=80&w=2076&auto=format&fit=crop"
+            ],
             shortDescription: "Ride the Dajti Ekspres to the Balcony of Tirana.",
-            fullDescription: "Escape the city bustle with a 15-minute cable car ride up Mount Dajt. At 1,613m above sea level, you'll find spectacular views, traditional restaurants, and hiking trails. It's the perfect spot to watch the sunset over the city or enjoy fresh mountain air.",
+            fullDescription: "Escape the city bustle with a 15-minute cable car ride up Mount Dajt. At 1,613m above sea level, you'll find spectacular views, traditional restaurants, and hiking trails.",
             duration: "4 - 5 Hours"
         },
         {
             title: "Bunk'Art History",
             image: "https://images.unsplash.com/photo-1596316668784-0775d787d904?q=80&w=2070&auto=format&fit=crop",
+            gallery: [
+                 "https://images.unsplash.com/photo-1596316668784-0775d787d904?q=80&w=2070&auto=format&fit=crop",
+                 "https://images.unsplash.com/photo-1652873111818-7f9a8888047f?q=80&w=2070&auto=format&fit=crop",
+            ],
             shortDescription: "Journey into Albania's mysterious past.",
-            fullDescription: "Explore the massive anti-nuclear bunker built by the former communist regime. Now converted into a history and art museum, Bunk'Art offers a fascinating, slightly eerie, and deeply educational dive into the Cold War era and the paranoid isolationism of the past.",
+            fullDescription: "Explore the massive anti-nuclear bunker built by the former communist regime. Now converted into a history and art museum, Bunk'Art offers a fascinating, slightly eerie, and deeply educational dive into the Cold War era.",
             duration: "2 Hours"
         },
         {
             title: "Grand Park & Lake",
             image: "https://images.unsplash.com/photo-1563804803960-9d0d3663dc75?q=80&w=2070&auto=format&fit=crop",
+            gallery: [
+                "https://images.unsplash.com/photo-1563804803960-9d0d3663dc75?q=80&w=2070&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1604576332822-195610745585?q=80&w=2070&auto=format&fit=crop"
+            ],
             shortDescription: "Relax in the green lungs of Tirana.",
-            fullDescription: "Located at the southern end of the city, the Artificial Lake Park is a favorite among locals. Enjoy a peaceful walk around the lake, visit the Royal Palace of the Brigades, or simply relax at one of the lakeside cafes. It's a perfect blend of nature and leisure.",
+            fullDescription: "Located at the southern end of the city, the Artificial Lake Park is a favorite among locals. Enjoy a peaceful walk around the lake, visit the Royal Palace of the Brigades, or simply relax at one of the lakeside cafes.",
             duration: "1 - 2 Hours"
         }
     ],
@@ -257,9 +281,9 @@ const HOTELS_AL: Hotel[] = [
     id: 'green-coast',
     name: 'Green Coast Resort',
     location: 'Palasë, Shqipëri',
-    description: 'E vendosur në brigjet e pacenuara të Rivierës Shqiptare, Green Coast ofron një ndërthurje të pashembullt të luksit modern dhe bukurisë natyrore. Përjetoni vila private, ujëra të kristalta dhe mikpritje të klasit botëror.',
-    shortDesc: 'Diamanti i Rivierës',
-    image: 'https://images.unsplash.com/photo-1540541338287-41700207dee6?q=80&w=2070&auto=format&fit=crop',
+    description: 'E vendosur në brigjet e pacenuara të Rivierës Shqiptare, Green Coast ofron një ndërthurje të pashembullt të luksit modern dhe bukurisë natyrore. Përjetoni vila private, ngjitur me detin.',
+    shortDesc: 'Ngjitur me Detin',
+    image: 'https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?q=80&w=2070&auto=format&fit=crop',
     features: ['Plazh Privat', 'Vila Luksoze', 'Helipad'],
     priceStart: 350,
     mapLocation: { lat: 40.15, lng: 19.6, address: "Palasë, Vlorë, Shqipëri" },
@@ -320,9 +344,9 @@ const HOTELS_AL: Hotel[] = [
     id: 'valamar',
     name: 'Valamar Durrës',
     location: 'Durrës, Shqipëri',
-    description: 'E vendosur në qytetin historik bregdetar të Durrësit, Valamar është një vendstrehim relaksi. E përkryer për familjet dhe çiftet, duke ofruar plazhe me rërë të artë dhe qasje të lehtë në amfiteatrin antik.',
-    shortDesc: 'Qetësi Bregdetare',
-    image: 'https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?q=80&w=2049&auto=format&fit=crop',
+    description: 'E vendosur në qytetin historik bregdetar të Durrësit, Valamar është një vendstrehim relaksi ngjitur me detin. E përkryer për familjet dhe çiftet, me plazhe rëre dhe qasje të lehtë në qytet.',
+    shortDesc: 'Ngjitur me Detin',
+    image: 'https://images.unsplash.com/photo-1615880484746-a134be9a6ecf?q=80&w=2074&auto=format&fit=crop',
     features: ['Suita Familjare', 'Pishinë pa Fund', 'Qendër Konferencash'],
     priceStart: 180,
     mapLocation: { lat: 41.32, lng: 19.45, address: "Rruga Plazhit, Durrës, Shqipëri" },
@@ -382,9 +406,9 @@ const HOTELS_AL: Hotel[] = [
     id: 'museum',
     name: 'The Museum Hotel',
     location: 'Qendra e Tiranës',
-    description: 'Zhytuni në histori dhe kulturë në zemër të kryeqytetit. Museum Hotel ndërthur elegancën arkitekturore me komoditetin bashkëkohor, hapa larg Sheshit Skënderbej.',
-    shortDesc: 'Elegancë Urbane',
-    image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070&auto=format&fit=crop',
+    description: 'Zhytuni në histori dhe kulturë në zemër të kryeqytetit. Museum Hotel ndërthur elegancën arkitekturore me komoditetin bashkëkohor, si një qendër kulturore.',
+    shortDesc: 'Hotel Kulturor',
+    image: 'https://images.unsplash.com/photo-1560184897-ae75f418493e?q=80&w=2070&auto=format&fit=crop',
     features: ['Bar në Tarracë', 'Pamje nga Qyteti', 'Sallon Biznesi'],
     priceStart: 220,
     mapLocation: { lat: 41.3275, lng: 19.818, address: "Sheshi Skënderbej, Tiranë, Shqipëri" },
@@ -449,29 +473,47 @@ const HOTELS_AL: Hotel[] = [
         {
             title: "Eksploro Qendrën",
             image: "https://images.unsplash.com/photo-1598322625292-66b962054fb0?q=80&w=2070&auto=format&fit=crop",
+            gallery: [
+                "https://images.unsplash.com/photo-1598322625292-66b962054fb0?q=80&w=2070&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1533513076899-28c0c4e72352?q=80&w=2070&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1627918342171-460d3d5f4900?q=80&w=2070&auto=format&fit=crop"
+            ],
             shortDescription: "Zemra e Tiranës, hapa larg derës suaj.",
-            fullDescription: "Zhytuni në Sheshin vibrante Skënderbej, epiqendra e Tiranës. Vizitoni Xhaminë ikonike të Et'hem Beut, ngjituni në Kullën e Sahatit për një pamje panoramike dhe shëtisni pranë ndërtesave qeveritare që tregojnë arkitekturën italiane. Ky tur në këmbë mbulon pikat kryesore që përcaktojnë historinë dhe transformimin modern të kryeqytetit.",
+            fullDescription: "Zhytuni në Sheshin vibrante Skënderbej, epiqendra e Tiranës. Vizitoni Xhaminë ikonike të Et'hem Beut, ngjituni në Kullën e Sahatit për një pamje panoramike dhe shëtisni pranë ndërtesave qeveritare që tregojnë arkitekturën italiane.",
             duration: "2 - 3 Orë"
         },
         {
             title: "Aventura në Malin e Dajtit",
             image: "https://images.unsplash.com/photo-1621689893888-038237d8a6db?q=80&w=2070&auto=format&fit=crop",
+            gallery: [
+                "https://images.unsplash.com/photo-1621689893888-038237d8a6db?q=80&w=2070&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1624890656096-7c1543666b6c?q=80&w=2070&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1587595431973-160d0d94add1?q=80&w=2076&auto=format&fit=crop"
+            ],
             shortDescription: "Udhëtoni me Dajti Ekspres drejt Ballkonit të Tiranës.",
-            fullDescription: "Ikni nga zhurma e qytetit me një udhëtim 15-minutësh me teleferik në Malin e Dajtit. Në 1,613 m mbi nivelin e detit, do të gjeni pamje spektakolare, restorante tradicionale dhe shtigje ecjeje. Është vendi i përsosur për të parë perëndimin e diellit mbi qytet ose për të shijuar ajrin e pastër malor.",
+            fullDescription: "Ikni nga zhurma e qytetit me një udhëtim 15-minutësh me teleferik në Malin e Dajtit. Në 1,613 m mbi nivelin e detit, do të gjeni pamje spektakolare, restorante tradicionale dhe shtigje ecjeje.",
             duration: "4 - 5 Orë"
         },
         {
             title: "Historia e Bunk'Art",
             image: "https://images.unsplash.com/photo-1596316668784-0775d787d904?q=80&w=2070&auto=format&fit=crop",
+            gallery: [
+                 "https://images.unsplash.com/photo-1596316668784-0775d787d904?q=80&w=2070&auto=format&fit=crop",
+                 "https://images.unsplash.com/photo-1652873111818-7f9a8888047f?q=80&w=2070&auto=format&fit=crop",
+            ],
             shortDescription: "Udhëtim në të kaluarën misterioze të Shqipërisë.",
-            fullDescription: "Eksploroni bunkerin masiv anti-bërthamor të ndërtuar nga ish-regjimi komunist. Tani i kthyer në një muze historie dhe arti, Bunk'Art ofron një zhytje magjepsëse, paksa të frikshme dhe thellësisht edukative në epokën e Luftës së Ftohtë dhe izolacionizmin paranojak të së kaluarës.",
+            fullDescription: "Eksploroni bunkerin masiv anti-bërthamor të ndërtuar nga ish-regjimi komunist. Tani i kthyer në një muze historie dhe arti, Bunk'Art ofron një zhytje magjepsëse, paksa të frikshme dhe thellësisht edukative.",
             duration: "2 Orë"
         },
         {
             title: "Liqeni Artificial & Parku i Madh",
             image: "https://images.unsplash.com/photo-1563804803960-9d0d3663dc75?q=80&w=2070&auto=format&fit=crop",
+            gallery: [
+                "https://images.unsplash.com/photo-1563804803960-9d0d3663dc75?q=80&w=2070&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1604576332822-195610745585?q=80&w=2070&auto=format&fit=crop"
+            ],
             shortDescription: "Relaksohuni në mushkëritë e gjelbra të Tiranës.",
-            fullDescription: "I vendosur në skajin jugor të qytetit, Parku i Liqenit Artificial është i preferuari i vendasve. Shijoni një shëtitje të qetë rreth liqenit, vizitoni Pallatin Mbretëror të Brigadave ose thjesht relaksohuni në një nga kafenetë buzë liqenit. Është një përzierje e përsosur e natyrës dhe kohës së lirë.",
+            fullDescription: "I vendosur në skajin jugor të qytetit, Parku i Liqenit Artificial është i preferuari i vendasve. Shijoni një shëtitje të qetë rreth liqenit, vizitoni Pallatin Mbretëror të Brigadave ose thjesht relaksohuni në një nga kafenetë buzë liqenit.",
             duration: "1 - 2 Orë"
         }
     ],

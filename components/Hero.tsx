@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { HERO_IMAGE } from '../constants';
 
 const Hero: React.FC = () => {
   const { data } = useLanguage();
@@ -8,8 +9,8 @@ const Hero: React.FC = () => {
       {/* Image Background */}
       <div className="absolute inset-0">
          <img 
-            src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=2070&auto=format&fit=crop" 
-            alt="Luxury Hotel Pool at Sunset"
+            src={HERO_IMAGE} 
+            alt="4C Group Luxury Hotels"
             className="w-full h-full object-cover"
          />
          <div className="absolute inset-0 bg-black/30"></div>
