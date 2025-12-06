@@ -29,7 +29,12 @@ const ImageSlider: React.FC = () => {
             index === currentIndex ? 'opacity-100' : 'opacity-0'
           }`}
         >
-          <img src={img} alt={`Slide ${index}`} className="w-full h-full object-cover" />
+          <img 
+            src={img} 
+            alt={`Slide ${index}`} 
+            className="w-full h-full object-cover" 
+            loading="lazy"
+          />
           <div className="absolute inset-0 bg-black/20"></div>
         </div>
       ))}

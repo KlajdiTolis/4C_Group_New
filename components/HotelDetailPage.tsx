@@ -240,6 +240,7 @@ const HotelDetailPage: React.FC = () => {
                 <img 
                   src={room.image} 
                   alt={room.name} 
+                  loading="lazy"
                   className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" 
                 />
                 
@@ -371,6 +372,7 @@ const HotelDetailPage: React.FC = () => {
                                 <img 
                                     src={activity.image} 
                                     alt={activity.title} 
+                                    loading="lazy"
                                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                                 />
                                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors"></div>
@@ -426,7 +428,7 @@ const HotelDetailPage: React.FC = () => {
       <section className="relative h-[600px] bg-black group">
          {hotel.gallery.map((img, idx) => (
              <div key={idx} className={`absolute inset-0 transition-opacity duration-1000 ${idx === currentSlide ? 'opacity-100' : 'opacity-0'}`}>
-                <img src={img} alt="Gallery" className="w-full h-full object-cover opacity-80" />
+                <img src={img} alt="Gallery" loading="lazy" className="w-full h-full object-cover opacity-80" />
              </div>
          ))}
          <div className="absolute inset-0 flex items-center justify-between px-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -484,7 +486,7 @@ const HotelDetailPage: React.FC = () => {
                      {/* Images */}
                      {(selectedRoom.gallery || [selectedRoom.image]).map((img, idx) => (
                         <div key={idx} className={`absolute inset-0 transition-opacity duration-500 ${idx === roomImageIndex ? 'opacity-100' : 'opacity-0'}`}>
-                           <img src={img} alt={`${selectedRoom.name} - View ${idx + 1}`} className="w-full h-full object-cover" />
+                           <img src={img} alt={`${selectedRoom.name} - View ${idx + 1}`} loading="lazy" className="w-full h-full object-cover" />
                         </div>
                      ))}
                      
@@ -581,7 +583,7 @@ const HotelDetailPage: React.FC = () => {
                      {selectedActivity.gallery && selectedActivity.gallery.length > 0 ? (
                          selectedActivity.gallery.map((img, idx) => (
                              <div key={idx} className="flex-shrink-0 w-full h-full relative snap-center">
-                                 <img src={img} alt={`${selectedActivity.title} - ${idx}`} className="w-full h-full object-cover" />
+                                 <img src={img} alt={`${selectedActivity.title} - ${idx}`} loading="lazy" className="w-full h-full object-cover" />
                                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
                                  {/* Image Counter */}
                                  <div className="absolute bottom-4 right-4 bg-black/40 text-white px-3 py-1 text-xs rounded-full backdrop-blur-md">
@@ -591,7 +593,7 @@ const HotelDetailPage: React.FC = () => {
                          ))
                      ) : (
                          <div className="w-full h-full relative">
-                            <img src={selectedActivity.image} alt={selectedActivity.title} className="w-full h-full object-cover" />
+                            <img src={selectedActivity.image} alt={selectedActivity.title} loading="lazy" className="w-full h-full object-cover" />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
                          </div>
                      )}

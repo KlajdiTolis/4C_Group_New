@@ -27,6 +27,7 @@ const HotelGrid: React.FC = () => {
                 <img 
                   src={hotel.image} 
                   alt={hotel.name}
+                  loading="lazy"
                   className="w-full h-full object-cover transition-transform duration-1000 ease-in-out group-hover:scale-110"
                 />
               </div>

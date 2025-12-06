@@ -11,6 +11,8 @@ export const SLIDER_IMAGES = [
     "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=2070&auto=format&fit=crop"  // Interior
 ];
 
+const R2_BASE = "https://pub-3bed4e1c62024c28800c300b9e2cbed1.r2.dev/4c-group";
+
 const HOTELS_EN: Hotel[] = [
   {
     id: 'green-coast',
@@ -160,10 +162,13 @@ const HOTELS_EN: Hotel[] = [
     rooms: [
         {
             name: "Deluxe Double Room",
-            image: "https://images.unsplash.com/photo-1591088398332-8a7791972843?q=80&w=2070&auto=format&fit=crop",
+            image: `${R2_BASE}/Deluxe%20Double%20Room/image00032.jpeg`,
             gallery: [
-                "https://images.unsplash.com/photo-1591088398332-8a7791972843?q=80&w=2070&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1507652313519-d4e9174996dd?q=80&w=2070&auto=format&fit=crop"
+                `${R2_BASE}/Deluxe%20Double%20Room/image00032.jpeg`,
+                `${R2_BASE}/Deluxe%20Double%20Room/image00033.jpeg`,
+                `${R2_BASE}/Deluxe%20Double%20Room/image00062.jpeg`,
+                `${R2_BASE}/Deluxe%20Double%20Room/image00063.jpeg`,
+                `${R2_BASE}/Deluxe%20Double%20Room/image00037.jpeg`
             ],
             size: "40 m²",
             capacity: "2 Guests",
@@ -172,10 +177,13 @@ const HOTELS_EN: Hotel[] = [
         },
         {
             name: "Double Twin Room",
-            image: "https://images.unsplash.com/photo-1595576508898-0ad5c879a061?q=80&w=2070&auto=format&fit=crop",
+            image: `${R2_BASE}/Double%20Twin%20Room/image00005.jpeg`,
             gallery: [
-                "https://images.unsplash.com/photo-1595576508898-0ad5c879a061?q=80&w=2070&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=2074&auto=format&fit=crop"
+                `${R2_BASE}/Double%20Twin%20Room/image00005.jpeg`,
+                `${R2_BASE}/Double%20Twin%20Room/image00074.jpeg`,
+                `${R2_BASE}/Double%20Twin%20Room/image00075.jpeg`,
+                `${R2_BASE}/Double%20Twin%20Room/image00076.jpeg`,
+                `${R2_BASE}/Double%20Twin%20Room/image00080.jpeg`
             ],
             size: "35 m²",
             capacity: "2 Guests",
@@ -184,10 +192,13 @@ const HOTELS_EN: Hotel[] = [
         },
         {
             name: "Family Room",
-            image: "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?q=80&w=2070&auto=format&fit=crop",
+            image: `${R2_BASE}/Family%20Room/image00003.jpeg`,
             gallery: [
-                "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?q=80&w=2070&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?q=80&w=2070&auto=format&fit=crop"
+                `${R2_BASE}/Family%20Room/image00003.jpeg`,
+                `${R2_BASE}/Family%20Room/image00014.jpeg`,
+                `${R2_BASE}/Family%20Room/image00015.jpeg`,
+                `${R2_BASE}/Family%20Room/image00019.jpeg`,
+                `${R2_BASE}/Family%20Room/image00057.jpeg`
             ],
             size: "60 m²",
             capacity: "4 Guests",
@@ -196,10 +207,13 @@ const HOTELS_EN: Hotel[] = [
         },
         {
             name: "Triple Room",
-            image: "https://images.unsplash.com/photo-1522771753033-673684cfcc00?q=80&w=2070&auto=format&fit=crop",
+            image: `${R2_BASE}/Triple%20Room/image00046.jpeg`,
             gallery: [
-                "https://images.unsplash.com/photo-1522771753033-673684cfcc00?q=80&w=2070&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1554995207-c18c203602cb?q=80&w=2070&auto=format&fit=crop"
+                `${R2_BASE}/Triple%20Room/image00046.jpeg`,
+                `${R2_BASE}/Triple%20Room/image00048.jpeg`,
+                `${R2_BASE}/Triple%20Room/image00049.jpeg`,
+                `${R2_BASE}/Triple%20Room/image00053.jpeg`,
+                `${R2_BASE}/Triple%20Room/image00054.jpeg`
             ],
             size: "45 m²",
             capacity: "3 Guests",
@@ -422,10 +436,13 @@ const HOTELS_AL: Hotel[] = [
     rooms: [
         {
             name: "Dhomë Deluxe Dyshe",
-            image: "https://images.unsplash.com/photo-1591088398332-8a7791972843?q=80&w=2070&auto=format&fit=crop",
+            image: `${R2_BASE}/Deluxe%20Double%20Room/image00032.jpeg`,
             gallery: [
-                "https://images.unsplash.com/photo-1591088398332-8a7791972843?q=80&w=2070&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1507652313519-d4e9174996dd?q=80&w=2070&auto=format&fit=crop"
+                `${R2_BASE}/Deluxe%20Double%20Room/image00032.jpeg`,
+                `${R2_BASE}/Deluxe%20Double%20Room/image00033.jpeg`,
+                `${R2_BASE}/Deluxe%20Double%20Room/image00062.jpeg`,
+                `${R2_BASE}/Deluxe%20Double%20Room/image00063.jpeg`,
+                `${R2_BASE}/Deluxe%20Double%20Room/image00037.jpeg`
             ],
             size: "40 m²",
             capacity: "2 Të ftuar",
@@ -434,10 +451,13 @@ const HOTELS_AL: Hotel[] = [
         },
         {
             name: "Dhomë Dyshe Twin",
-            image: "https://images.unsplash.com/photo-1595576508898-0ad5c879a061?q=80&w=2070&auto=format&fit=crop",
+            image: `${R2_BASE}/Double%20Twin%20Room/image00005.jpeg`,
             gallery: [
-                "https://images.unsplash.com/photo-1595576508898-0ad5c879a061?q=80&w=2070&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=2074&auto=format&fit=crop"
+                `${R2_BASE}/Double%20Twin%20Room/image00005.jpeg`,
+                `${R2_BASE}/Double%20Twin%20Room/image00074.jpeg`,
+                `${R2_BASE}/Double%20Twin%20Room/image00075.jpeg`,
+                `${R2_BASE}/Double%20Twin%20Room/image00076.jpeg`,
+                `${R2_BASE}/Double%20Twin%20Room/image00080.jpeg`
             ],
             size: "35 m²",
             capacity: "2 Të ftuar",
@@ -446,10 +466,13 @@ const HOTELS_AL: Hotel[] = [
         },
         {
             name: "Dhomë Familjare",
-            image: "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?q=80&w=2070&auto=format&fit=crop",
+            image: `${R2_BASE}/Family%20Room/image00003.jpeg`,
             gallery: [
-                "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?q=80&w=2070&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?q=80&w=2070&auto=format&fit=crop"
+                `${R2_BASE}/Family%20Room/image00003.jpeg`,
+                `${R2_BASE}/Family%20Room/image00014.jpeg`,
+                `${R2_BASE}/Family%20Room/image00015.jpeg`,
+                `${R2_BASE}/Family%20Room/image00019.jpeg`,
+                `${R2_BASE}/Family%20Room/image00057.jpeg`
             ],
             size: "60 m²",
             capacity: "4 Të ftuar",
@@ -458,10 +481,13 @@ const HOTELS_AL: Hotel[] = [
         },
         {
             name: "Dhomë Treshe",
-            image: "https://images.unsplash.com/photo-1522771753033-673684cfcc00?q=80&w=2070&auto=format&fit=crop",
+            image: `${R2_BASE}/Triple%20Room/image00046.jpeg`,
             gallery: [
-                "https://images.unsplash.com/photo-1522771753033-673684cfcc00?q=80&w=2070&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1554995207-c18c203602cb?q=80&w=2070&auto=format&fit=crop"
+                `${R2_BASE}/Triple%20Room/image00046.jpeg`,
+                `${R2_BASE}/Triple%20Room/image00048.jpeg`,
+                `${R2_BASE}/Triple%20Room/image00049.jpeg`,
+                `${R2_BASE}/Triple%20Room/image00053.jpeg`,
+                `${R2_BASE}/Triple%20Room/image00054.jpeg`
             ],
             size: "45 m²",
             capacity: "3 Të ftuar",
