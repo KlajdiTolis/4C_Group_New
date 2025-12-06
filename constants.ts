@@ -12,6 +12,7 @@ export const SLIDER_IMAGES = [
 ];
 
 const R2_BASE = "https://pub-3bed4e1c62024c28800c300b9e2cbed1.r2.dev";
+const ACT_BASE = `${R2_BASE}/museum/activities`;
 
 const HOTELS_EN: Hotel[] = [
   {
@@ -97,11 +98,11 @@ const HOTELS_EN: Hotel[] = [
     activities: [
         {
             title: "Explore City Center",
-            image: "https://images.unsplash.com/photo-1598322625292-66b962054fb0?q=80&w=2070&auto=format&fit=crop",
+            image: `${ACT_BASE}/tirana_city_center.jpg`,
             gallery: [
-                "https://images.unsplash.com/photo-1598322625292-66b962054fb0?q=80&w=2070&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1533513076899-28c0c4e72352?q=80&w=2070&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1627918342171-460d3d5f4900?q=80&w=2070&auto=format&fit=crop"
+                `${ACT_BASE}/tirana_city_center.jpg`,
+                `${ACT_BASE}/skenderbeu_center.jpg`,
+                `${ACT_BASE}/tirana_center.jpg`
             ],
             shortDescription: "The heart of Tirana, steps from your door.",
             fullDescription: "Immerse yourself in the vibrant Skanderbeg Square, the epicenter of Tirana. Visit the iconic Et'hem Bey Mosque, climb the Clock Tower for a panoramic view, and stroll past the government buildings that showcase Italian architecture.",
@@ -109,11 +110,11 @@ const HOTELS_EN: Hotel[] = [
         },
         {
             title: "Mount Dajt Adventure",
-            image: "https://images.unsplash.com/photo-1621689893888-038237d8a6db?q=80&w=2070&auto=format&fit=crop",
+            image: `${ACT_BASE}/dajt.jpg`,
             gallery: [
-                "https://images.unsplash.com/photo-1621689893888-038237d8a6db?q=80&w=2070&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1624890656096-7c1543666b6c?q=80&w=2070&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1587595431973-160d0d94add1?q=80&w=2076&auto=format&fit=crop"
+                `${ACT_BASE}/dajt.jpg`,
+                `${ACT_BASE}/dajt1.jpg`,
+                `${ACT_BASE}/dajt2.jpg`
             ],
             shortDescription: "Ride the Dajti Ekspres to the Balcony of Tirana.",
             fullDescription: "Escape the city bustle with a 15-minute cable car ride up Mount Dajt. At 1,613m above sea level, you'll find spectacular views, traditional restaurants, and hiking trails.",
@@ -121,10 +122,11 @@ const HOTELS_EN: Hotel[] = [
         },
         {
             title: "Bunk'Art History",
-            image: "https://images.unsplash.com/photo-1596316668784-0775d787d904?q=80&w=2070&auto=format&fit=crop",
+            image: `${ACT_BASE}/bunkart.jpg`,
             gallery: [
-                 "https://images.unsplash.com/photo-1596316668784-0775d787d904?q=80&w=2070&auto=format&fit=crop",
-                 "https://images.unsplash.com/photo-1652873111818-7f9a8888047f?q=80&w=2070&auto=format&fit=crop",
+                 `${ACT_BASE}/bunkart.jpg`,
+                 `${ACT_BASE}/bunkart1.jpg`,
+                 `${ACT_BASE}/bunkart2.jpg`,
             ],
             shortDescription: "Journey into Albania's mysterious past.",
             fullDescription: "Explore the massive anti-nuclear bunker built by the former communist regime. Now converted into a history and art museum, Bunk'Art offers a fascinating, slightly eerie, and deeply educational dive into the Cold War era.",
@@ -132,10 +134,11 @@ const HOTELS_EN: Hotel[] = [
         },
         {
             title: "Grand Park & Lake",
-            image: "https://images.unsplash.com/photo-1563804803960-9d0d3663dc75?q=80&w=2070&auto=format&fit=crop",
+            image: `${ACT_BASE}/liqen.jpg`,
             gallery: [
-                "https://images.unsplash.com/photo-1563804803960-9d0d3663dc75?q=80&w=2070&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1604576332822-195610745585?q=80&w=2070&auto=format&fit=crop"
+                `${ACT_BASE}/liqen.jpg`,
+                `${ACT_BASE}/liqen1.jpg`,
+                `${ACT_BASE}/liqen2.jpg`
             ],
             shortDescription: "Relax in the green lungs of Tirana.",
             fullDescription: "Located at the southern end of the city, the Artificial Lake Park is a favorite among locals. Enjoy a peaceful walk around the lake, visit the Royal Palace of the Brigades, or simply relax at one of the lakeside cafes.",
@@ -297,7 +300,7 @@ const HOTELS_AL: Hotel[] = [
     location: 'Palasë, Shqipëri',
     description: 'E vendosur në brigjet e pacenuara të Rivierës Shqiptare, Green Coast ofron një ndërthurje të pashembullt të luksit modern dhe bukurisë natyrore. Përjetoni vila private, ngjitur me detin.',
     shortDesc: 'Ngjitur me Detin',
-    image: 'https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?q=80&w=2070&auto=format&fit=crop',
+    image: 'https://pub-3bed4e1c62024c28800c300b9e2cbed1.r2.dev/4C-Palase/4cGroup.png',
     features: ['Plazh Privat', 'Vila Luksoze', 'Helipad'],
     priceStart: 350,
     mapLocation: { lat: 40.15, lng: 19.6, address: "Palasë, Vlorë, Shqipëri" },
@@ -360,7 +363,7 @@ const HOTELS_AL: Hotel[] = [
     location: 'Durrës, Shqipëri',
     description: 'E vendosur në qytetin historik bregdetar të Durrësit, Valamar është një vendstrehim relaksi ngjitur me detin. E përkryer për familjet dhe çiftet, me plazhe rëre dhe qasje të lehtë në qytet.',
     shortDesc: 'Ngjitur me Detin',
-    image: 'https://images.unsplash.com/photo-1615880484746-a134be9a6ecf?q=80&w=2074&auto=format&fit=crop',
+    image: 'https://pub-3bed4e1c62024c28800c300b9e2cbed1.r2.dev/valamar/valamar.png',
     features: ['Suita Familjare', 'Pishinë pa Fund', 'Qendër Konferencash'],
     priceStart: 180,
     mapLocation: { lat: 41.32, lng: 19.45, address: "Rruga Plazhit, Durrës, Shqipëri" },
@@ -498,11 +501,11 @@ const HOTELS_AL: Hotel[] = [
     activities: [
         {
             title: "Eksploro Qendrën",
-            image: "https://images.unsplash.com/photo-1598322625292-66b962054fb0?q=80&w=2070&auto=format&fit=crop",
+            image: `${ACT_BASE}/tirana_city_center.jpg`,
             gallery: [
-                "https://images.unsplash.com/photo-1598322625292-66b962054fb0?q=80&w=2070&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1533513076899-28c0c4e72352?q=80&w=2070&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1627918342171-460d3d5f4900?q=80&w=2070&auto=format&fit=crop"
+                `${ACT_BASE}/tirana_city_center.jpg`,
+                `${ACT_BASE}/skenderbeu_center.jpg`,
+                `${ACT_BASE}/tirana_center.jpg`
             ],
             shortDescription: "Zemra e Tiranës, hapa larg derës suaj.",
             fullDescription: "Zhytuni në Sheshin vibrante Skënderbej, epiqendra e Tiranës. Vizitoni Xhaminë ikonike të Et'hem Beut, ngjituni në Kullën e Sahatit për një pamje panoramike dhe shëtisni pranë ndërtesave qeveritare që tregojnë arkitekturën italiane.",
@@ -510,11 +513,11 @@ const HOTELS_AL: Hotel[] = [
         },
         {
             title: "Aventura në Malin e Dajtit",
-            image: "https://images.unsplash.com/photo-1621689893888-038237d8a6db?q=80&w=2070&auto=format&fit=crop",
+            image: `${ACT_BASE}/dajt.jpg`,
             gallery: [
-                "https://images.unsplash.com/photo-1621689893888-038237d8a6db?q=80&w=2070&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1624890656096-7c1543666b6c?q=80&w=2070&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1587595431973-160d0d94add1?q=80&w=2076&auto=format&fit=crop"
+                `${ACT_BASE}/dajt.jpg`,
+                `${ACT_BASE}/dajt1.jpg`,
+                `${ACT_BASE}/dajt2.jpg`
             ],
             shortDescription: "Udhëtoni me Dajti Ekspres drejt Ballkonit të Tiranës.",
             fullDescription: "Ikni nga zhurma e qytetit me një udhëtim 15-minutësh me teleferik në Malin e Dajtit. Në 1,613 m mbi nivelin e detit, do të gjeni pamje spektakolare, restorante tradicionale dhe shtigje ecjeje.",
@@ -522,10 +525,11 @@ const HOTELS_AL: Hotel[] = [
         },
         {
             title: "Historia e Bunk'Art",
-            image: "https://images.unsplash.com/photo-1596316668784-0775d787d904?q=80&w=2070&auto=format&fit=crop",
+            image: `${ACT_BASE}/bunkart.jpg`,
             gallery: [
-                 "https://images.unsplash.com/photo-1596316668784-0775d787d904?q=80&w=2070&auto=format&fit=crop",
-                 "https://images.unsplash.com/photo-1652873111818-7f9a8888047f?q=80&w=2070&auto=format&fit=crop",
+                 `${ACT_BASE}/bunkart.jpg`,
+                 `${ACT_BASE}/bunkart1.jpg`,
+                 `${ACT_BASE}/bunkart2.jpg`,
             ],
             shortDescription: "Udhëtim në të kaluarën misterioze të Shqipërisë.",
             fullDescription: "Eksploroni bunkerin masiv anti-bërthamor të ndërtuar nga ish-regjimi komunist. Tani i kthyer në një muze historie dhe arti, Bunk'Art ofron një zhytje magjepsëse, paksa të frikshme dhe thellësisht edukative.",
@@ -533,10 +537,11 @@ const HOTELS_AL: Hotel[] = [
         },
         {
             title: "Liqeni Artificial & Parku i Madh",
-            image: "https://images.unsplash.com/photo-1563804803960-9d0d3663dc75?q=80&w=2070&auto=format&fit=crop",
+            image: `${ACT_BASE}/liqen.jpg`,
             gallery: [
-                "https://images.unsplash.com/photo-1563804803960-9d0d3663dc75?q=80&w=2070&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1604576332822-195610745585?q=80&w=2070&auto=format&fit=crop"
+                `${ACT_BASE}/liqen.jpg`,
+                `${ACT_BASE}/liqen1.jpg`,
+                `${ACT_BASE}/liqen2.jpg`
             ],
             shortDescription: "Relaksohuni në mushkëritë e gjelbra të Tiranës.",
             fullDescription: "I vendosur në skajin jugor të qytetit, Parku i Liqenit Artificial është i preferuari i vendasve. Shijoni një shëtitje të qetë rreth liqenit, vizitoni Pallatin Mbretëror të Brigadave ose thjesht relaksohuni në një nga kafenetë buzë liqenit.",
