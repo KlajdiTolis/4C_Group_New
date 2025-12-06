@@ -55,6 +55,46 @@ const HotelDetailPage: React.FC = () => {
       );
   }
 
+  // COMING SOON LOGIC FOR VALAMAR AND GREEN COAST
+  if (hotel.id === 'valamar' || hotel.id === 'green-coast') {
+    return (
+        <div className="relative h-screen w-full flex flex-col items-center justify-center bg-brand-dark text-white overflow-hidden animate-fade-in">
+            {/* Background Image with Blur */}
+            <div className="absolute inset-0">
+                <img 
+                    src={hotel.image} 
+                    alt={hotel.name} 
+                    className="w-full h-full object-cover opacity-40 blur-sm scale-110" 
+                />
+                <div className="absolute inset-0 bg-black/60"></div>
+            </div>
+
+            <button 
+                onClick={() => navigate('/')}
+                className="absolute top-24 left-6 md:left-12 z-20 flex items-center gap-2 text-white/80 hover:text-white transition-colors bg-black/20 px-4 py-2 rounded-full backdrop-blur-sm"
+            >
+                <ArrowLeft size={18} /> <span className="text-sm uppercase tracking-widest">{data.labels.backToCollection}</span>
+            </button>
+
+            <div className="relative z-10 text-center px-6 max-w-4xl">
+                {/* Logo if available */}
+                <div className="mb-10 flex justify-center animate-fade-in-up">
+                    {getHotelLogo(hotel.id) || <Logo4C className="w-32 h-32 text-white opacity-90" />}
+                </div>
+                
+                <h1 className="text-5xl md:text-7xl font-serif mb-6 drop-shadow-2xl animate-fade-in-up delay-100">{hotel.name}</h1>
+                <div className="w-24 h-1 bg-brand-gold mx-auto mb-8 animate-fade-in-up delay-200"></div>
+                <p className="text-2xl md:text-4xl uppercase tracking-[0.3em] font-light text-brand-gold animate-fade-in-up delay-300">
+                    Coming Soon
+                </p>
+                <p className="mt-6 text-gray-300 max-w-lg mx-auto font-light leading-relaxed animate-fade-in-up delay-500">
+                    We are currently curating an exceptional digital experience for this property. Please check back shortly.
+                </p>
+            </div>
+        </div>
+    );
+  }
+
   const nextSlide = () => setCurrentSlide(prev => (prev + 1) % hotel.gallery.length);
   const prevSlide = () => setCurrentSlide(prev => (prev === 0 ? hotel.gallery.length - 1 : prev - 1));
 
@@ -107,14 +147,14 @@ const HotelDetailPage: React.FC = () => {
   return (
     <div className="animate-fade-in relative">
       {/* 1. Hero Section */}
-      <div className="relative h-screen w-full overflow-hidden">
+      <div className="relative h-screen w-full overflow-hidden bg-brand-dark">
         <div className="absolute inset-0">
-          <img 
-            src={hotel.image} 
-            alt={hotel.name}
-            className="w-full h-full object-cover object-center"
-          />
-          <div className="absolute inset-0 bg-black/40"></div>
+            <img 
+                src={hotel.image} 
+                alt={hotel.name}
+                className="w-full h-full object-cover object-center"
+            />
+            <div className="absolute inset-0 bg-black/40"></div>
         </div>
         
         <button 
@@ -124,8 +164,8 @@ const HotelDetailPage: React.FC = () => {
           <ArrowLeft size={18} /> <span className="text-sm uppercase tracking-widest">{data.labels.backToCollection}</span>
         </button>
 
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 z-10">
-          <span className="text-brand-gold uppercase tracking-[0.3em] mb-8 font-bold text-sm md:text-base animate-fade-in-up">
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 z-10 pointer-events-none">
+          <span className="text-brand-gold uppercase tracking-[0.3em] mb-8 font-bold text-sm md:text-base animate-fade-in-up drop-shadow-lg">
             {hotel.location}
           </span>
           
@@ -139,7 +179,7 @@ const HotelDetailPage: React.FC = () => {
             )}
           </div>
 
-          <p className="text-white/90 max-w-lg text-lg font-light leading-relaxed animate-fade-in-up delay-200">
+          <p className="text-white/90 max-w-lg text-lg font-light leading-relaxed animate-fade-in-up delay-200 drop-shadow-md">
              {hotel.shortDesc}
           </p>
         </div>
