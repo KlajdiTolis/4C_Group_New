@@ -1,13 +1,9 @@
 import React, { useState } from 'react';
-import { Hotel, Room, Activity } from '../types';
+import { useParams, useNavigate } from 'react-router-dom';
+import { Room, Activity } from '../types';
 import { Wifi, Car, Utensils, Waves, Sparkles, Bell, MapPin, Star, User, Maximize, ArrowLeft, Building, Dumbbell, Quote, ChevronLeft, ChevronRight, X, Check, TicketPercent, Clock, Tag, Calendar, Users, Loader, ArrowRight } from 'lucide-react';
 import { LogoMuseum, LogoValamar, Logo4C } from './Logos';
 import { useLanguage } from '../contexts/LanguageContext';
-
-interface HotelDetailPageProps {
-  hotel: Hotel;
-  onBack: () => void;
-}
 
 const iconMap: Record<string, React.ReactNode> = {
   Wifi: <Wifi size={32} strokeWidth={1} />,
@@ -31,7 +27,13 @@ const getHotelLogo = (id: string) => {
     }
 };
 
-const HotelDetailPage: React.FC<HotelDetailPageProps> = ({ hotel, onBack }) => {
+const HotelDetailPage: React.FC = () => {
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const { data, language } = useLanguage();
+  
+  const hotel = data.hotels.find(h => h.id === id);
+
   const [currentSlide, setCurrentSlide] = useState(0);
   const [selectedRoom, setSelectedRoom] = useState<Room | null>(null);
   const [roomImageIndex, setRoomImageIndex] = useState(0);
@@ -44,7 +46,14 @@ const HotelDetailPage: React.FC<HotelDetailPageProps> = ({ hotel, onBack }) => {
   const [isChecking, setIsChecking] = useState(false);
   const [availabilityMsg, setAvailabilityMsg] = useState<{type: 'success' | 'error', text: string} | null>(null);
 
-  const { data, language } = useLanguage();
+  if (!hotel) {
+      return (
+          <div className="flex flex-col items-center justify-center min-h-screen">
+              <h2 className="text-2xl font-serif text-brand-dark mb-4">Hotel Not Found</h2>
+              <button onClick={() => navigate('/')} className="text-brand-gold hover:underline">Return Home</button>
+          </div>
+      );
+  }
 
   const nextSlide = () => setCurrentSlide(prev => (prev + 1) % hotel.gallery.length);
   const prevSlide = () => setCurrentSlide(prev => (prev === 0 ? hotel.gallery.length - 1 : prev - 1));
@@ -109,7 +118,7 @@ const HotelDetailPage: React.FC<HotelDetailPageProps> = ({ hotel, onBack }) => {
         </div>
         
         <button 
-          onClick={onBack}
+          onClick={() => navigate('/')}
           className="absolute top-24 left-6 md:left-12 z-20 flex items-center gap-2 text-white/80 hover:text-white transition-colors bg-black/20 px-4 py-2 rounded-full backdrop-blur-sm"
         >
           <ArrowLeft size={18} /> <span className="text-sm uppercase tracking-widest">{data.labels.backToCollection}</span>

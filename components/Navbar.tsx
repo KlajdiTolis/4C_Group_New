@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Globe } from 'lucide-react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Logo4C } from './Logos';
 
-interface NavbarProps {
-  onNavigate: (page: string) => void;
-}
-
-const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
+const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { language, setLanguage, data } = useLanguage();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -40,12 +39,32 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
 
   const handleLinkClick = (e: React.MouseEvent, href: string) => {
     e.preventDefault();
-    onNavigate('home');
-    setTimeout(() => {
-        const element = document.querySelector(href);
-        element?.scrollIntoView({ behavior: 'smooth' });
-    }, 100);
+    
+    // Function to handle scrolling
+    const scroll = () => {
+        if (href.startsWith('#')) {
+            const element = document.querySelector(href);
+            element?.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
+    if (location.pathname !== '/') {
+        navigate('/');
+        // Wait for navigation to home before scrolling
+        setTimeout(() => {
+            scroll();
+        }, 300);
+    } else {
+        scroll();
+    }
+    
     setMobileMenuOpen(false);
+  };
+
+  const handleHomeClick = () => {
+      navigate('/');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setMobileMenuOpen(false);
   };
 
   const toggleLanguage = () => {
@@ -56,7 +75,7 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
     <nav className={navClass}>
       <div className="container mx-auto px-6 flex justify-between items-center">
         {/* Logo */}
-        <div className="flex items-center space-x-2 z-50 cursor-pointer group" onClick={() => onNavigate('home')}>
+        <div className="flex items-center space-x-2 z-50 cursor-pointer group" onClick={handleHomeClick}>
           <div className="bg-white/10 p-2 rounded-full backdrop-blur-sm group-hover:bg-white/20 transition-colors">
             <Logo4C className="w-10 h-10 md:w-12 md:h-12 text-white" />
           </div>
@@ -72,7 +91,7 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
               key={link.name}
               href={link.href}
               onClick={(e) => handleLinkClick(e, link.href)}
-              className={`text-sm uppercase tracking-widest hover:text-brand-gold transition-colors ${textClass} font-medium`}
+              className={`text-sm uppercase tracking-widest hover:text-brand-gold transition-colors ${textClass} font-medium cursor-pointer`}
             >
               {link.name}
             </a>
@@ -106,7 +125,7 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
               key={link.name}
               href={link.href}
               onClick={(e) => handleLinkClick(e, link.href)}
-              className="text-white text-2xl font-serif hover:text-brand-gold"
+              className="text-white text-2xl font-serif hover:text-brand-gold cursor-pointer"
             >
               {link.name}
             </a>

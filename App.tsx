@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import HotelGrid from './components/HotelGrid';
@@ -10,47 +11,50 @@ import Reviews from './components/Reviews';
 import Footer from './components/Footer';
 import ConciergeModal from './components/ConciergeModal';
 import HotelDetailPage from './components/HotelDetailPage';
-import { LanguageProvider, useLanguage } from './contexts/LanguageContext';
+import { LanguageProvider } from './contexts/LanguageContext';
+
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+};
+
+const Home = () => {
+  return (
+    <>
+      <Hero />
+      <HotelGrid />
+      <InfoSection />
+      <Facilities />
+      <ImageSlider />
+      <ExploreMore />
+      <Reviews />
+    </>
+  );
+};
 
 const AppContent: React.FC = () => {
-  const [currentView, setCurrentView] = useState<'home' | string>('home');
-  const { data } = useLanguage();
-
-  const handleNavigate = (view: string) => {
-    setCurrentView(view);
-    window.scrollTo(0, 0);
-  };
-
-  const selectedHotel = data.hotels.find(h => h.id === currentView);
-
   return (
-    <div className="min-h-screen flex flex-col font-sans">
-      <Navbar onNavigate={handleNavigate} />
-      
-      <main className="flex-grow">
-        {currentView === 'home' ? (
-            <>
-                <Hero />
-                <HotelGrid onNavigate={handleNavigate} />
-                <InfoSection />
-                <Facilities />
-                <ImageSlider />
-                <ExploreMore />
-                <Reviews />
-            </>
-        ) : (
-            selectedHotel && (
-                <HotelDetailPage 
-                    hotel={selectedHotel} 
-                    onBack={() => handleNavigate('home')} 
-                />
-            )
-        )}
-      </main>
+    <BrowserRouter>
+        <ScrollToTop />
+        <div className="min-h-screen flex flex-col font-sans">
+        <Navbar />
+        
+        <main className="flex-grow">
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/hotel/:id" element={<HotelDetailPage />} />
+            </Routes>
+        </main>
 
-      <Footer />
-      <ConciergeModal />
-    </div>
+        <Footer />
+        <ConciergeModal />
+        </div>
+    </BrowserRouter>
   );
 };
 

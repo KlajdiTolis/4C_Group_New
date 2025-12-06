@@ -1,13 +1,11 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Info, Building, BedDouble, MapPin } from 'lucide-react';
 
-interface HotelGridProps {
-    onNavigate: (hotelId: string) => void;
-}
-
-const HotelGrid: React.FC<HotelGridProps> = ({ onNavigate }) => {
+const HotelGrid: React.FC = () => {
   const { data } = useLanguage();
+  const navigate = useNavigate();
 
   return (
     <section id="hotels" className="py-24 bg-brand-cream">
@@ -21,7 +19,7 @@ const HotelGrid: React.FC<HotelGridProps> = ({ onNavigate }) => {
           {data.hotels.map((hotel, index) => (
             <div 
                 key={hotel.id} 
-                onClick={() => onNavigate(hotel.id)}
+                onClick={() => navigate(`/hotel/${hotel.id}`)}
                 className="group relative h-[500px] rounded-2xl overflow-hidden cursor-pointer shadow-xl border border-white/20"
             >
               {/* Image Background */}
