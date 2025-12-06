@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { MessageSquare, X, Send, Sparkles } from 'lucide-react';
 import { ChatMessage } from '../types';
-import { sendMessageToConcierge } from '../services/geminiService';
+// import { sendMessageToConcierge } from '../services/geminiService';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const ConciergeModal: React.FC = () => {
@@ -35,7 +35,8 @@ const ConciergeModal: React.FC = () => {
     setInputValue('');
     setLoading(true);
 
-    const responseText = await sendMessageToConcierge(userMsg.text);
+    // const responseText = await sendMessageToConcierge(userMsg.text);
+    const responseText = "I'm having trouble connecting to the concierge service right now. Please try again later.";
     
     setMessages(prev => [...prev, { role: 'model', text: responseText, timestamp: new Date() }]);
     setLoading(false);
