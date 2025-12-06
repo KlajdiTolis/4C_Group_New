@@ -59,6 +59,17 @@ interface Data {
         conciergeSubtitle: string;
         conciergeInput: string;
         conciergeGreeting: string;
+        exclusiveOffer: string;
+        offerEnds: string;
+        useCode: string;
+        checkIn: string;
+        checkOut: string;
+        guests: string;
+        checkAvailability: string;
+        culturalActivities: string;
+        discoverHeritage: string;
+        activityDetails: string;
+        duration: string;
     }
 }
 
@@ -72,7 +83,7 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [language, setLanguage] = useState<Language>('en');
-
+  
   const value = {
     language,
     setLanguage,

@@ -23,6 +23,22 @@ export interface Review {
   location: string;
 }
 
+export interface SpecialOffer {
+  title: string;
+  description: string;
+  value: string; // e.g., "15% OFF"
+  code?: string;
+  validUntil?: string;
+}
+
+export interface Activity {
+  title: string;
+  image: string;
+  shortDescription: string;
+  fullDescription: string;
+  duration: string;
+}
+
 export interface Hotel {
   id: string;
   name: string;
@@ -38,6 +54,8 @@ export interface Hotel {
   gallery: string[];
   reviews: Review[];
   mapLocation: { lat: number; lng: number; address: string };
+  specialOffer?: SpecialOffer;
+  activities?: Activity[];
 }
 
 export interface ChatMessage {

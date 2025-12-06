@@ -19,6 +19,13 @@ const HOTELS_EN: Hotel[] = [
     features: ['Private Beach', 'Luxury Villas', 'Helipad'],
     priceStart: 350,
     mapLocation: { lat: 40.15, lng: 19.6, address: "Palasë, Vlorë County, Albania" },
+    specialOffer: {
+        title: "Early Summer Escape",
+        description: "Book your villa 60 days in advance and enjoy exclusive savings on your stay. Includes complimentary breakfast.",
+        value: "15% OFF",
+        code: "SUMMER24",
+        validUntil: "May 31, 2024"
+    },
     rooms: [
         {
             name: "Sea View Villa",
@@ -75,6 +82,13 @@ const HOTELS_EN: Hotel[] = [
     features: ['Family Suites', 'Infinity Pool', 'Conference Center'],
     priceStart: 180,
     mapLocation: { lat: 41.32, lng: 19.45, address: "Rruga Plazhit, Durrës, Albania" },
+    specialOffer: {
+        title: "Family Retreat",
+        description: "Kids stay and eat for free! Valid for families booking a Family Suite for minimum 3 nights.",
+        value: "KIDS EAT FREE",
+        code: "FAMILYFUN",
+        validUntil: "June 15, 2024"
+    },
     rooms: [
         {
             name: "Family Suite",
@@ -130,21 +144,28 @@ const HOTELS_EN: Hotel[] = [
     features: ['Rooftop Bar', 'City Views', 'Business Lounge'],
     priceStart: 220,
     mapLocation: { lat: 41.3275, lng: 19.818, address: "Sheshi Skënderbej, Tirana, Albania" },
+    specialOffer: {
+        title: "City Break Package",
+        description: "Stay 3 nights, pay for 2. Includes complimentary tickets to the National History Museum.",
+        value: "3 FOR 2",
+        code: "CITY342",
+        validUntil: "Dec 31, 2024"
+    },
     rooms: [
         {
-            name: "Executive Suite",
+            name: "Deluxe Double Room",
             image: "https://images.unsplash.com/photo-1591088398332-8a7791972843?q=80&w=2070&auto=format&fit=crop",
             gallery: [
                 "https://images.unsplash.com/photo-1591088398332-8a7791972843?q=80&w=2070&auto=format&fit=crop",
                 "https://images.unsplash.com/photo-1507652313519-d4e9174996dd?q=80&w=2070&auto=format&fit=crop"
             ],
-            size: "55 m²",
+            size: "40 m²",
             capacity: "2 Guests",
-            price: 320,
-            features: ["City View", "Lounge Access", "Bathtub"]
+            price: 250,
+            features: ["City View", "King Bed", "Work Desk"]
         },
         {
-            name: "Classic Room",
+            name: "Double Twin Room",
             image: "https://images.unsplash.com/photo-1595576508898-0ad5c879a061?q=80&w=2070&auto=format&fit=crop",
             gallery: [
                 "https://images.unsplash.com/photo-1595576508898-0ad5c879a061?q=80&w=2070&auto=format&fit=crop",
@@ -152,8 +173,62 @@ const HOTELS_EN: Hotel[] = [
             ],
             size: "35 m²",
             capacity: "2 Guests",
-            price: 220,
-            features: ["Smart TV", "Rain Shower", "Espresso Machine"]
+            price: 200,
+            features: ["Two Twin Beds", "Courtyard View", "Rain Shower"]
+        },
+        {
+            name: "Family Room",
+            image: "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?q=80&w=2070&auto=format&fit=crop",
+            gallery: [
+                "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?q=80&w=2070&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?q=80&w=2070&auto=format&fit=crop"
+            ],
+            size: "60 m²",
+            capacity: "4 Guests",
+            price: 380,
+            features: ["Connecting Rooms", "Living Area", "Bathtub"]
+        },
+        {
+            name: "Triple Room",
+            image: "https://images.unsplash.com/photo-1522771753033-673684cfcc00?q=80&w=2070&auto=format&fit=crop",
+            gallery: [
+                "https://images.unsplash.com/photo-1522771753033-673684cfcc00?q=80&w=2070&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1554995207-c18c203602cb?q=80&w=2070&auto=format&fit=crop"
+            ],
+            size: "45 m²",
+            capacity: "3 Guests",
+            price: 280,
+            features: ["Three Beds", "City View", "Minibar"]
+        }
+    ],
+    activities: [
+        {
+            title: "Explore City Center",
+            image: "https://images.unsplash.com/photo-1598322625292-66b962054fb0?q=80&w=2070&auto=format&fit=crop",
+            shortDescription: "The heart of Tirana, steps from your door.",
+            fullDescription: "Immerse yourself in the vibrant Skanderbeg Square, the epicenter of Tirana. Visit the iconic Et'hem Bey Mosque, climb the Clock Tower for a panoramic view, and stroll past the government buildings that showcase Italian architecture. This walking tour covers the essential landmarks that define the capital's history and modern transformation.",
+            duration: "2 - 3 Hours"
+        },
+        {
+            title: "Mount Dajt Adventure",
+            image: "https://images.unsplash.com/photo-1621689893888-038237d8a6db?q=80&w=2070&auto=format&fit=crop",
+            shortDescription: "Ride the Dajti Ekspres to the Balcony of Tirana.",
+            fullDescription: "Escape the city bustle with a 15-minute cable car ride up Mount Dajt. At 1,613m above sea level, you'll find spectacular views, traditional restaurants, and hiking trails. It's the perfect spot to watch the sunset over the city or enjoy fresh mountain air.",
+            duration: "4 - 5 Hours"
+        },
+        {
+            title: "Bunk'Art History",
+            image: "https://images.unsplash.com/photo-1596316668784-0775d787d904?q=80&w=2070&auto=format&fit=crop",
+            shortDescription: "Journey into Albania's mysterious past.",
+            fullDescription: "Explore the massive anti-nuclear bunker built by the former communist regime. Now converted into a history and art museum, Bunk'Art offers a fascinating, slightly eerie, and deeply educational dive into the Cold War era and the paranoid isolationism of the past.",
+            duration: "2 Hours"
+        },
+        {
+            title: "Grand Park & Lake",
+            image: "https://images.unsplash.com/photo-1563804803960-9d0d3663dc75?q=80&w=2070&auto=format&fit=crop",
+            shortDescription: "Relax in the green lungs of Tirana.",
+            fullDescription: "Located at the southern end of the city, the Artificial Lake Park is a favorite among locals. Enjoy a peaceful walk around the lake, visit the Royal Palace of the Brigades, or simply relax at one of the lakeside cafes. It's a perfect blend of nature and leisure.",
+            duration: "1 - 2 Hours"
         }
     ],
     amenitiesList: [
@@ -188,6 +263,13 @@ const HOTELS_AL: Hotel[] = [
     features: ['Plazh Privat', 'Vila Luksoze', 'Helipad'],
     priceStart: 350,
     mapLocation: { lat: 40.15, lng: 19.6, address: "Palasë, Vlorë, Shqipëri" },
+    specialOffer: {
+        title: "Arratisje e Hershme Verore",
+        description: "Rezervoni vilën tuaj 60 ditë përpara dhe përfitoni zbritje ekskluzive. Përfshin mëngjes falas.",
+        value: "15% ULJE",
+        code: "SUMMER24",
+        validUntil: "31 Maj, 2024"
+    },
     rooms: [
         {
             name: "Vila me Pamje nga Deti",
@@ -244,6 +326,13 @@ const HOTELS_AL: Hotel[] = [
     features: ['Suita Familjare', 'Pishinë pa Fund', 'Qendër Konferencash'],
     priceStart: 180,
     mapLocation: { lat: 41.32, lng: 19.45, address: "Rruga Plazhit, Durrës, Shqipëri" },
+    specialOffer: {
+        title: "Paketë Familjare",
+        description: "Fëmijët qëndrojnë dhe hanë falas! E vlefshme për familjet që rezervojnë një Suitë Familjare për minimum 3 netë.",
+        value: "FËMIJËT FALAS",
+        code: "FAMILYFUN",
+        validUntil: "15 Qershor, 2024"
+    },
     rooms: [
         {
             name: "Suitë Familjare",
@@ -299,21 +388,28 @@ const HOTELS_AL: Hotel[] = [
     features: ['Bar në Tarracë', 'Pamje nga Qyteti', 'Sallon Biznesi'],
     priceStart: 220,
     mapLocation: { lat: 41.3275, lng: 19.818, address: "Sheshi Skënderbej, Tiranë, Shqipëri" },
+    specialOffer: {
+        title: "Paketa City Break",
+        description: "Qëndroni 3 netë, paguani për 2. Përfshin bileta falas për në Muzeun Historik Kombëtar.",
+        value: "3 PËR 2",
+        code: "CITY342",
+        validUntil: "31 Dhjetor, 2024"
+    },
     rooms: [
         {
-            name: "Suitë Ekzekutive",
+            name: "Dhomë Deluxe Dyshe",
             image: "https://images.unsplash.com/photo-1591088398332-8a7791972843?q=80&w=2070&auto=format&fit=crop",
             gallery: [
                 "https://images.unsplash.com/photo-1591088398332-8a7791972843?q=80&w=2070&auto=format&fit=crop",
                 "https://images.unsplash.com/photo-1507652313519-d4e9174996dd?q=80&w=2070&auto=format&fit=crop"
             ],
-            size: "55 m²",
+            size: "40 m²",
             capacity: "2 Të ftuar",
-            price: 320,
-            features: ["Pamje nga Qyteti", "Akses në Sallon", "Vaskë"]
+            price: 250,
+            features: ["Pamje nga Qyteti", "Krevat King", "Tavolinë Pune"]
         },
         {
-            name: "Dhomë Klasike",
+            name: "Dhomë Dyshe Twin",
             image: "https://images.unsplash.com/photo-1595576508898-0ad5c879a061?q=80&w=2070&auto=format&fit=crop",
             gallery: [
                 "https://images.unsplash.com/photo-1595576508898-0ad5c879a061?q=80&w=2070&auto=format&fit=crop",
@@ -321,8 +417,62 @@ const HOTELS_AL: Hotel[] = [
             ],
             size: "35 m²",
             capacity: "2 Të ftuar",
-            price: 220,
-            features: ["TV Smart", "Dush Shiu", "Makinë Espreso"]
+            price: 200,
+            features: ["Dy Krevate Tek", "Pamje nga Oborri", "Dush Shiu"]
+        },
+        {
+            name: "Dhomë Familjare",
+            image: "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?q=80&w=2070&auto=format&fit=crop",
+            gallery: [
+                "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?q=80&w=2070&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?q=80&w=2070&auto=format&fit=crop"
+            ],
+            size: "60 m²",
+            capacity: "4 Të ftuar",
+            price: 380,
+            features: ["Dhoma Ndelidhëse", "Zonë Ndenjeje", "Vaskë"]
+        },
+        {
+            name: "Dhomë Treshe",
+            image: "https://images.unsplash.com/photo-1522771753033-673684cfcc00?q=80&w=2070&auto=format&fit=crop",
+            gallery: [
+                "https://images.unsplash.com/photo-1522771753033-673684cfcc00?q=80&w=2070&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1554995207-c18c203602cb?q=80&w=2070&auto=format&fit=crop"
+            ],
+            size: "45 m²",
+            capacity: "3 Të ftuar",
+            price: 280,
+            features: ["Tre Krevate", "Pamje nga Qyteti", "Minibar"]
+        }
+    ],
+    activities: [
+        {
+            title: "Eksploro Qendrën",
+            image: "https://images.unsplash.com/photo-1598322625292-66b962054fb0?q=80&w=2070&auto=format&fit=crop",
+            shortDescription: "Zemra e Tiranës, hapa larg derës suaj.",
+            fullDescription: "Zhytuni në Sheshin vibrante Skënderbej, epiqendra e Tiranës. Vizitoni Xhaminë ikonike të Et'hem Beut, ngjituni në Kullën e Sahatit për një pamje panoramike dhe shëtisni pranë ndërtesave qeveritare që tregojnë arkitekturën italiane. Ky tur në këmbë mbulon pikat kryesore që përcaktojnë historinë dhe transformimin modern të kryeqytetit.",
+            duration: "2 - 3 Orë"
+        },
+        {
+            title: "Aventura në Malin e Dajtit",
+            image: "https://images.unsplash.com/photo-1621689893888-038237d8a6db?q=80&w=2070&auto=format&fit=crop",
+            shortDescription: "Udhëtoni me Dajti Ekspres drejt Ballkonit të Tiranës.",
+            fullDescription: "Ikni nga zhurma e qytetit me një udhëtim 15-minutësh me teleferik në Malin e Dajtit. Në 1,613 m mbi nivelin e detit, do të gjeni pamje spektakolare, restorante tradicionale dhe shtigje ecjeje. Është vendi i përsosur për të parë perëndimin e diellit mbi qytet ose për të shijuar ajrin e pastër malor.",
+            duration: "4 - 5 Orë"
+        },
+        {
+            title: "Historia e Bunk'Art",
+            image: "https://images.unsplash.com/photo-1596316668784-0775d787d904?q=80&w=2070&auto=format&fit=crop",
+            shortDescription: "Udhëtim në të kaluarën misterioze të Shqipërisë.",
+            fullDescription: "Eksploroni bunkerin masiv anti-bërthamor të ndërtuar nga ish-regjimi komunist. Tani i kthyer në një muze historie dhe arti, Bunk'Art ofron një zhytje magjepsëse, paksa të frikshme dhe thellësisht edukative në epokën e Luftës së Ftohtë dhe izolacionizmin paranojak të së kaluarës.",
+            duration: "2 Orë"
+        },
+        {
+            title: "Liqeni Artificial & Parku i Madh",
+            image: "https://images.unsplash.com/photo-1563804803960-9d0d3663dc75?q=80&w=2070&auto=format&fit=crop",
+            shortDescription: "Relaksohuni në mushkëritë e gjelbra të Tiranës.",
+            fullDescription: "I vendosur në skajin jugor të qytetit, Parku i Liqenit Artificial është i preferuari i vendasve. Shijoni një shëtitje të qetë rreth liqenit, vizitoni Pallatin Mbretëror të Brigadave ose thjesht relaksohuni në një nga kafenetë buzë liqenit. Është një përzierje e përsosur e natyrës dhe kohës së lirë.",
+            duration: "1 - 2 Orë"
         }
     ],
     amenitiesList: [
@@ -433,7 +583,18 @@ export const CONTENT = {
             conciergeTitle: "Auron Concierge",
             conciergeSubtitle: "Powered by Gemini AI",
             conciergeInput: "Ask about our hotels...",
-            conciergeGreeting: "Mirëdita! I am Auron, your 4C Group Concierge. How may I assist you in planning your stay in Albania?"
+            conciergeGreeting: "Mirëdita! I am Auron, your 4C Group Concierge. How may I assist you in planning your stay in Albania?",
+            exclusiveOffer: "Exclusive Offer",
+            offerEnds: "Offer ends:",
+            useCode: "Use code:",
+            checkIn: "Check In",
+            checkOut: "Check Out",
+            guests: "Guests",
+            checkAvailability: "Check Availability",
+            culturalActivities: "Cultural Activities",
+            discoverHeritage: "Discover Local Heritage",
+            activityDetails: "Activity Details",
+            duration: "Duration"
         }
     },
     al: {
@@ -522,7 +683,18 @@ export const CONTENT = {
             conciergeTitle: "Auron Konsierzh",
             conciergeSubtitle: "Mundësuar nga Gemini AI",
             conciergeInput: "Pyesni rreth hoteleve tona...",
-            conciergeGreeting: "Mirëdita! Unë jam Auron, Konsierzhi i 4C Group. Si mund t'ju ndihmoj në planifikimin e qëndrimit tuaj në Shqipëri?"
+            conciergeGreeting: "Mirëdita! Unë jam Auron, Konsierzhi i 4C Group. Si mund t'ju ndihmoj në planifikimin e qëndrimit tuaj në Shqipëri?",
+            exclusiveOffer: "Ofertë Ekskluzive",
+            offerEnds: "Oferta përfundon:",
+            useCode: "Përdorni kodin:",
+            checkIn: "Check-in",
+            checkOut: "Check-out",
+            guests: "Të ftuar",
+            checkAvailability: "Kontrollo Disponueshmërinë",
+            culturalActivities: "Aktivitete Kulturore",
+            discoverHeritage: "Zbuloni Trashëgiminë Lokale",
+            activityDetails: "Detajet e Aktivitetit",
+            duration: "Kohëzgjatja"
         }
     }
 };
