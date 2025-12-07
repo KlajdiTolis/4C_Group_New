@@ -603,7 +603,7 @@ export const CONTENT = {
             },
             {
                 title: "Sights of Albania",
-                image: "https://images.unsplash.com/photo-1596316666178-5a21e0657c91?q=80&w=2070&auto=format&fit=crop", // Berat Image
+                image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070&auto=format&fit=crop", // Berat Image
                 description: "Explore the ancient history and natural wonders.",
                 longDescription: "Albania is a land of ancient tales and breathtaking landscapes. Visit the UNESCO World Heritage city of Berat, hike the accursed mountains of Theth, or explore the Roman ruins of Butrint. Our concierge can arrange private tours to these iconic destinations.",
                 features: ["UNESCO Heritage Sites", "Private Guided Tours", "National Parks", "Historical Ruins"]
