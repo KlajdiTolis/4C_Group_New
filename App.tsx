@@ -11,6 +11,7 @@ import Reviews from './components/Reviews';
 import Footer from './components/Footer';
 import ConciergeModal from './components/ConciergeModal';
 import HotelDetailPage from './components/HotelDetailPage';
+import Statistics from './components/Statistics';
 import { LanguageProvider } from './contexts/LanguageContext';
 
 const ScrollToTop = () => {
@@ -29,6 +30,7 @@ const Home = () => {
       <Hero />
       <HotelGrid />
       <InfoSection />
+      <Statistics />
       <Facilities />
       <ImageSlider />
       <ExploreMore />

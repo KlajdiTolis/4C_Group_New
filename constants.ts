@@ -590,17 +590,23 @@ export const CONTENT = {
             {
                 title: "Dine and Shop",
                 image: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=2070&auto=format&fit=crop",
-                description: "Exquisite culinary experiences and boutique shopping."
+                description: "Exquisite culinary experiences and boutique shopping.",
+                longDescription: "Indulge in a journey of flavors where traditional Albanian cuisine meets modern gastronomy. Our hotels partner with the finest local wineries and artisans to bring you an exclusive shopping experience right at your doorstep. From handmade textiles to reserved vintage wines, discover the treasures of Albania.",
+                features: ["Farm-to-Table Dining", "Local Wine Tasting", "Artisan Boutiques", "Private Chefs"]
             },
             {
                 title: "Events and Activities",
                 image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=2070&auto=format&fit=crop",
-                description: "Curated events designed to entertain and inspire."
+                description: "Curated events designed to entertain and inspire.",
+                longDescription: "Experience the vibrant culture of Albania through our curated events calendar. Whether it's an open-air jazz concert at Green Coast, a cultural exhibition at The Museum Hotel, or a beachside festival at Valamar, we ensure your stay is filled with memorable moments.",
+                features: ["Live Music Nights", "Art Exhibitions", "Beach Festivals", "Cultural Workshops"]
             },
             {
                 title: "Sights of Albania",
-                image: "https://images.unsplash.com/photo-1598322625292-66b962054fb0?q=80&w=2070&auto=format&fit=crop",
-                description: "Explore the ancient history and natural wonders."
+                image: "https://images.unsplash.com/photo-1596316666178-5a21e0657c91?q=80&w=2070&auto=format&fit=crop", // Berat Image
+                description: "Explore the ancient history and natural wonders.",
+                longDescription: "Albania is a land of ancient tales and breathtaking landscapes. Visit the UNESCO World Heritage city of Berat, hike the accursed mountains of Theth, or explore the Roman ruins of Butrint. Our concierge can arrange private tours to these iconic destinations.",
+                features: ["UNESCO Heritage Sites", "Private Guided Tours", "National Parks", "Historical Ruins"]
             }
         ],
         reviews: [
@@ -667,7 +673,10 @@ export const CONTENT = {
             culturalActivities: "Cultural Activities",
             discoverHeritage: "Discover Local Heritage",
             activityDetails: "Activity Details",
-            duration: "Duration"
+            duration: "Duration",
+            statsRooms: "Rooms",
+            statsApartments: "Apartments",
+            statsVillas: "Villas",
         }
     },
     al: {
@@ -690,17 +699,23 @@ export const CONTENT = {
             {
                 title: "Ngrënie dhe Blerje",
                 image: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=2070&auto=format&fit=crop",
-                description: "Eksperienca kulinarie të shkëlqyera dhe blerje në butikë."
+                description: "Eksperienca kulinarie të shkëlqyera dhe blerje në butikë.",
+                longDescription: "Kënaquni në një udhëtim shijesh ku kuzhina tradicionale shqiptare takohet me gastronomine moderne. Hotelet tona bashkëpunojnë me kantinat dhe artizanët më të mirë vendas për t'ju sjellë një përvojë ekskluzive blerjeje. Nga tekstilet e punuara me dorë tek verërat e vjetra, zbuloni thesaret e Shqipërisë.",
+                features: ["Restorante Farm-to-Table", "Degustim Verërash", "Butikë Artizanale", "Kuzhinierë Privatë"]
             },
             {
                 title: "Evente dhe Aktivitete",
                 image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=2070&auto=format&fit=crop",
-                description: "Evente të kuruara për të argëtuar dhe frymëzuar."
+                description: "Evente të kuruara për të argëtuar dhe frymëzuar.",
+                longDescription: "Përjetoni kulturën vibrante të Shqipërisë përmes kalendarit tonë të eventeve. Qoftë një koncert xhazi në natyrë në Green Coast, një ekspozitë kulturore në The Museum Hotel, apo një festival plazhi në Valamar, ne sigurohemi që qëndrimi juaj të jetë i mbushur me momente të paharrueshme.",
+                features: ["Netë me Muzikë Live", "Ekspozita Arti", "Festivale Plazhi", "Punëtori Kulturore"]
             },
             {
                 title: "Pamjet e Shqipërisë",
-                image: "https://images.unsplash.com/photo-1598322625292-66b962054fb0?q=80&w=2070&auto=format&fit=crop",
-                description: "Eksploroni historinë e lashtë dhe mrekullitë natyrore."
+                image: "https://images.unsplash.com/photo-1596316666178-5a21e0657c91?q=80&w=2070&auto=format&fit=crop", // Berat Image
+                description: "Eksploroni historinë e lashtë dhe mrekullitë natyrore.",
+                longDescription: "Shqipëria është një tokë e përrallave të lashta dhe peizazheve mahnitëse. Vizitoni qytetin e Beratit, trashëgimi botërore e UNESCO-s, ecni në alpet e Thethit, ose eksploroni rrënojat romake të Butrintit. Konsierzhi ynë mund të organizojë ture private në këto destinacione ikonike.",
+                features: ["Site të Trashëgimisë UNESCO", "Ture Private me Guidë", "Parqe Kombëtare", "Rrënoja Historike"]
             }
         ],
         reviews: [
@@ -767,7 +782,10 @@ export const CONTENT = {
             culturalActivities: "Aktivitete Kulturore",
             discoverHeritage: "Zbuloni Trashëgiminë Lokale",
             activityDetails: "Detajet e Aktivitetit",
-            duration: "Kohëzgjatja"
+            duration: "Kohëzgjatja",
+            statsRooms: "Dhoma",
+            statsApartments: "Apartamente",
+            statsVillas: "Vila",
         }
     }
 };

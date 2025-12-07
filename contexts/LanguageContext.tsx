@@ -8,7 +8,13 @@ interface Data {
     hotels: Hotel[];
     navLinks: { name: string; href: string }[];
     facilities: { name: string; icon: string }[];
-    exploreItems: { title: string; image: string; description: string }[];
+    exploreItems: { 
+        title: string; 
+        image: string; 
+        description: string;
+        longDescription: string;
+        features: string[];
+    }[];
     reviews: Review[];
     labels: {
         bookNow: string;
@@ -70,6 +76,9 @@ interface Data {
         discoverHeritage: string;
         activityDetails: string;
         duration: string;
+        statsRooms: string;
+        statsApartments: string;
+        statsVillas: string;
     }
 }
 
